@@ -159,6 +159,8 @@
 
   environment.systemPackages = with pkgs; [
     vim
+    libgcc
+    zig
     wget
     killall
     eza
