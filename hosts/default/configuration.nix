@@ -162,7 +162,44 @@
     wget
     killall
     eza
+    zoxide
+    fnm
+    yazi
+    fzf
+    obsidian
     git
+    hyprshot
+    ntfs3g
+    os-prober
+    tmux
+    neovim
+    rustup
+    nodePackages_latest.pnpm
+    nodePackages_latest.yarn
+    nodePackages_latest.nodejs
+    lazygit
+    lazydocker
+    bruno
+    bun
+    cliphist
+    telegram-desktop
+    yt-dlp
+    aria2
+    auto-cpufreq
+    stremio
+    hugo
+    jdk
+    nvtopPackages.nvidia
+    onedrive
+    tailscale
+    p7zip
+    zoom-us
+    vscode
+    zed-editor
+    vesktop
+    qbittorrent
+    cloudflare-warp
+    localsend
     cmatrix
     lolcat
     fastfetch
@@ -185,11 +222,16 @@
     socat
     cowsay
     ripgrep
+    grep
     lshw
     bat
     pkg-config
     meson
     hyprpicker
+    hyprpaper
+    hyprlock
+    waypaper
+    dunst
     ninja
     brightnessctl
     virt-viewer
@@ -222,6 +264,9 @@
   fonts = {
     packages = with pkgs; [
       noto-fonts-emoji
+      fira-sans
+      roboto
+      nerdfonts
       noto-fonts-cjk
       font-awesome
       symbola
@@ -283,6 +328,9 @@
         # pkgs.hplipWithPlugin 
       ];
     };
+    auto-cpufreq = {
+      enable = true;
+    }
     gnome.gnome-keyring.enable = true;
     avahi = {
       enable = true;
@@ -301,6 +349,8 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      jack.enable = true;
+      wireplumber.enable = true;
     };
     rpcbind.enable = false;
     nfs.server.enable = false;
