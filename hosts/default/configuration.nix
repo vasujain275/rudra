@@ -222,7 +222,6 @@
     socat
     cowsay
     ripgrep
-    grep
     lshw
     bat
     pkg-config
@@ -248,7 +247,7 @@
     #swww
     grim
     slurp
-    gnome.file-roller
+    file-roller
     swaynotificationcenter
     imv
     mpv
@@ -330,7 +329,7 @@
     };
     auto-cpufreq = {
       enable = true;
-    }
+    };
     gnome.gnome-keyring.enable = true;
     avahi = {
       enable = true;
@@ -431,9 +430,9 @@
   #};
 
   # OpenGL
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport32Bit = true;
+    #driSupport32Bit = true;
   };
 
 
