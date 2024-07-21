@@ -21,14 +21,9 @@ with lib;
         modules-center = [ "hyprland/workspaces" ];
         modules-left = [
           "custom/startmenu"
-          "hyprland/window"
           "pulseaudio"
-          "cpu"
-          "memory"
-          "idle_inhibitor"
         ];
         modules-right = [
-          "custom/hyprbindings"
           "custom/notification"
           "custom/exit"
           "battery"
@@ -50,13 +45,6 @@ with lib;
           format = '' {:L%I:%M %p}'';
           tooltip = true;
           tooltip-format = "<big>{:%A, %d.%B %Y }</big>\n<tt><small>{calendar}</small></tt>";
-        };
-        "hyprland/window" = {
-          max-length = 22;
-          separate-outputs = false;
-          rewrite = {
-            "" = " 🙈 No Windows? ";
-          };
         };
         "memory" = {
           interval = 5;
