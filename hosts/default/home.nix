@@ -16,28 +16,6 @@
 
   ];
 
-  home.file.".config/hypr" = {
-    source = ../../dots/hypr;
-    recursive = true;
-  };
-
-  home.file.".config/nvim" = {
-    source = ../../dots/nvim;
-    recursive = true;
-  };
-
-  home.file.".config/kitty" = {
-    source = ../../dots/kitty;
-    recursive = true;
-  };
-
-
-  home.file.".gitconfig" = {
-    source = ../../dots/.gitconfig;
-  };
-
-
-
   home.sessionVariables = {
     # EDITOR = "emacs";
   };

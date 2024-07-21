@@ -159,6 +159,7 @@
 
   environment.systemPackages = with pkgs; [
     vim
+    stow
     libgcc
     zig
     wget
