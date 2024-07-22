@@ -342,6 +342,7 @@
     neovide
     greetd.tuigreet
     ansible
+    davinci-resolve
   ];
 
   fonts = {
@@ -349,7 +350,6 @@
       noto-fonts-emoji
       fira-sans
       roboto
-      nerdfonts
       noto-fonts-cjk
       font-awesome
       symbola
