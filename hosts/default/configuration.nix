@@ -311,7 +311,8 @@
     pkg-config
     meson
     hyprpicker
-    hyprpaper
+    #hyprpaper
+    swww
     hyprlock
     waypaper
     #waybar

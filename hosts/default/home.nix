@@ -31,7 +31,51 @@
   #   style.name = "adwaita-dark";
   #   platformTheme.name = "gtk3";
   # };
-  #
+
+  home.packages = [
+    # (import ../../scripts/emopicker9000.nix { inherit pkgs; })
+    # (import ../../scripts/task-waybar.nix { inherit pkgs; })
+    # (import ../../scripts/squirtle.nix { inherit pkgs; })
+    # (import ../../scripts/nvidia-offload.nix { inherit pkgs; })
+    (import ../../scripts/wallsetter.nix {
+      inherit pkgs;
+      # inherit username;
+    })
+    # (import ../../scripts/web-search.nix { inherit pkgs; })
+    # (import ../../scripts/rofi-launcher.nix { inherit pkgs; })
+    # (import ../../scripts/screenshootin.nix { inherit pkgs; })
+    # (import ../../scripts/list-hypr-bindings.nix {
+    #   inherit pkgs;
+    #   inherit host;
+    # })
+  ];
+
+
+  services = {
+    hypridle = {
+      settings = {
+        general = {
+          after_sleep_cmd = "hyprctl dispatch dpms on";
+          ignore_dbus_inhibit = false;
+          lock_cmd = "hyprlock";
+        };
+        listener = [
+          {
+            timeout = 900;
+            on-timeout = "hyprlock";
+          }
+          {
+            timeout = 1200;
+            on-timeout = "hyprctl dispatch dpms off";
+            on-resume = "hyprctl dispatch dpms on";
+          }
+        ];
+      };
+    };
+  };
+
+
+
   # home.sessionVariables = {
   #   # EDITOR = "emacs";
   # };
