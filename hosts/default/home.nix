@@ -12,6 +12,12 @@
     ../../config/rofi/rofi.nix
     # ../../config/wlogout.nix
   ];
+  
+  home.file.".config/wlogout/icons" = {
+  source = ../../config/wlogout;
+  recursive = true;
+  };
+
 
   # Styling
   stylix.targets.waybar.enable = false;
