@@ -9,6 +9,7 @@
 
   imports = [
     ../../config/waybar.nix
+    ../../config/rofi/rofi.nix
     # ../../config/wlogout.nix
   ];
 
