@@ -10,7 +10,7 @@
   imports = [
     ../../config/waybar.nix
     ../../config/rofi/rofi.nix
-    # ../../config/wlogout.nix
+    ../../config/wlogout.nix
   ];
   
   home.file.".config/wlogout/icons" = {
