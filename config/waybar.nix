@@ -21,12 +21,11 @@ with lib;
         modules-center = [ "hyprland/workspaces" ];
         modules-left = [
           "custom/startmenu"
-          "pulseaudio"
         ];
         modules-right = [
-          "custom/notification"
-          "custom/exit"
+          # "custom/notification"
           "battery"
+          "pulseaudio"
           "tray"
           "clock"
         ];
@@ -77,12 +76,12 @@ with lib;
           spacing = 12;
         };
         "pulseaudio" = {
-          format = "{icon} {volume}% {format_source}";
+          format = "{icon} {volume}%";
           format-bluetooth = "{volume}% {icon} {format_source}";
           format-bluetooth-muted = " {icon} {format_source}";
           format-muted = " {format_source}";
-          format-source = " {volume}%";
-          format-source-muted = "";
+          # format-source = " {volume}%";
+          # format-source-muted = "";
           format-icons = {
             headphone = "";
             hands-free = "";
@@ -191,7 +190,7 @@ with lib;
           margin: 0px 3px;
           border-radius: 16px;
           color: #${config.stylix.base16Scheme.base00};
-          background: linear-gradient(45deg, #${config.stylix.base16Scheme.base08}, #${config.stylix.base16Scheme.base0D});
+          background: #${config.stylix.base16Scheme.base08};
           opacity: 0.5;
           transition: ${betterTransition};
         }
@@ -201,7 +200,7 @@ with lib;
           margin: 0px 3px;
           border-radius: 16px;
           color: #${config.stylix.base16Scheme.base00};
-          background: linear-gradient(45deg, #${config.stylix.base16Scheme.base08}, #${config.stylix.base16Scheme.base0D});
+          background: #${config.stylix.base16Scheme.base08};
           transition: ${betterTransition};
           opacity: 1.0;
           min-width: 40px;
@@ -210,7 +209,7 @@ with lib;
           font-weight: bold;
           border-radius: 16px;
           color: #${config.stylix.base16Scheme.base00};
-          background: linear-gradient(45deg, #${config.stylix.base16Scheme.base08}, #${config.stylix.base16Scheme.base0D});
+          background: #${config.stylix.base16Scheme.base08};
           opacity: 0.8;
           transition: ${betterTransition};
         }
@@ -242,7 +241,7 @@ with lib;
         #custom-hyprbindings, #network, #battery,
         #custom-notification, #tray, #custom-exit {
           font-weight: bold;
-          background: #${config.stylix.base16Scheme.base0F};
+          background: #${config.stylix.base16Scheme.base0A};
           color: #${config.stylix.base16Scheme.base00};
           margin: 4px 0px;
           margin-right: 7px;
@@ -252,7 +251,7 @@ with lib;
         #clock {
           font-weight: bold;
           color: #0D0E15;
-          background: linear-gradient(90deg, #${config.stylix.base16Scheme.base0E}, #${config.stylix.base16Scheme.base0C});
+          background: #${config.stylix.base16Scheme.base0B};
           margin: 0px;
           padding: 0px 15px 0px 30px;
           border-radius: 0px 0px 0px 40px;
