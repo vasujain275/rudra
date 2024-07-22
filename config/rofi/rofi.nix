@@ -39,7 +39,7 @@
             cursor = mkLiteral "default";
             spacing = mkLiteral "0px";
             border = mkLiteral "2px";
-            border-color = mkLiteral "@border-color";
+            border-color = "@border-color";
             border-radius = mkLiteral "20px";
             background-color = mkLiteral "@bg";
           };
@@ -146,11 +146,11 @@
           };
           "element normal.urgent" = {
             background-color = mkLiteral "@urgent";
-            text-color = mkLiteral "@foreground";
+            # text-color = mkLiteral "@foreground";
           };
           "element normal.active" = {
             background-color = mkLiteral "@active";
-            text-color = mkLiteral "@foreground";
+            # text-color = mkLiteral "@foreground";
           };
           "element selected.normal" = {
             background-color = mkLiteral "@selected";
