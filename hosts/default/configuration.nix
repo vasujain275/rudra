@@ -422,7 +422,7 @@
     };
     ipp-usb.enable = true;
     syncthing = {
-      enable = false;
+      enable = enable;
       user = "vasu";
       dataDir = "/home/vasu";
       configDir = "/home/vasu/.config/syncthing";
