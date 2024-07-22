@@ -39,7 +39,7 @@
             cursor = mkLiteral "default";
             spacing = mkLiteral "0px";
             border = mkLiteral "2px";
-            border-color = "@border-color";
+            border-color = mkLiteral "@border-color";
             border-radius = mkLiteral "20px";
             background-color = mkLiteral "@bg";
           };
