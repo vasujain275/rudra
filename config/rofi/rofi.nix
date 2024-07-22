@@ -29,7 +29,7 @@
             active = mkLiteral "#${config.stylix.base16Scheme.base0B}";
             text-selected = mkLiteral "#${config.stylix.base16Scheme.base00}";
             text-color = mkLiteral "#${config.stylix.base16Scheme.base05}";
-            border-color = mkLiteral "#${config.stylix.base16Scheme.base0F}";
+            # border-color = mkLiteral "#${config.stylix.base16Scheme.base0F}";
             urgent = mkLiteral "#${config.stylix.base16Scheme.base0E}";
           };
           "window" = {
@@ -39,7 +39,7 @@
             cursor = mkLiteral "default";
             spacing = mkLiteral "0px";
             border = mkLiteral "2px";
-            border-color = "@border-color";
+            # border-color = "@border-color";
             border-radius = mkLiteral "20px";
             background-color = mkLiteral "@bg";
           };
@@ -128,7 +128,7 @@
           "scrollbar" = {
             width = mkLiteral "4px";
             border = 0;
-            handle-color = mkLiteral "@border-color";
+            # handle-color = mkLiteral "@border-color";
             handle-width = mkLiteral "8px";
             padding = 0;
           };
@@ -146,11 +146,11 @@
           };
           "element normal.urgent" = {
             background-color = mkLiteral "@urgent";
-            # text-color = mkLiteral "@foreground";
+            text-color = mkLiteral "@foreground";
           };
           "element normal.active" = {
             background-color = mkLiteral "@active";
-            # text-color = mkLiteral "@foreground";
+            text-color = mkLiteral "@foreground";
           };
           "element selected.normal" = {
             background-color = mkLiteral "@selected";
