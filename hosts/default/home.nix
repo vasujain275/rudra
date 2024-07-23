@@ -11,6 +11,7 @@
     ../../config/waybar.nix
     ../../config/rofi/rofi.nix
     ../../config/wlogout.nix
+    # ../../config/neovim.nix
   ];
   
   home.file.".config/wlogout/icons" = {
@@ -57,6 +58,9 @@
     # })
   ];
 
+  programs.neovim.plugins = [
+    pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+  ];
 
   services = {
     hypridle = {

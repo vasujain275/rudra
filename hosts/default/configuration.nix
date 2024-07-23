@@ -136,6 +136,10 @@
 
 
   programs = {
+    nix-ld = {
+      enable = true;
+      package = pkgs.nix-ld-rs;
+    };
     firefox.enable = false;
     starship = {
       enable = true;
@@ -262,6 +266,7 @@
     os-prober
     tmux
     neovim
+    tree-sitter
     rustup
     nodePackages_latest.pnpm
     nodePackages_latest.yarn
