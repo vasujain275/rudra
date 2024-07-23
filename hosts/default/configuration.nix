@@ -238,6 +238,9 @@
 
   environment.systemPackages = with pkgs; [
     vim
+    go
+    lua
+    python3
     stow
     libgcc
     zig
@@ -246,6 +249,7 @@
     eza
     # starship
     # oh-my-posh
+    imagemagick
     zoxide
     fnm
     yazi

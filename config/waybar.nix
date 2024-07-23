@@ -221,12 +221,12 @@ with lib;
         tooltip label {
           color: #${config.stylix.base16Scheme.base08};
         }
-        #window, #pulseaudio, #cpu, #memory, #idle_inhibitor {
+        #window, #cpu, #memory, #idle_inhibitor {
           font-weight: bold;
           margin: 4px 0px;
           margin-left: 7px;
           padding: 0px 18px;
-          background: #${config.stylix.base16Scheme.base04};
+          background: #${config.stylix.base16Scheme.base02};
           color: #${config.stylix.base16Scheme.base00};
           border-radius: 24px 10px 24px 10px;
         }
@@ -238,11 +238,11 @@ with lib;
           padding: 0px 30px 0px 15px;
           border-radius: 0px 0px 40px 0px;
         }
-        #custom-hyprbindings, #network, #battery,
+        #custom-hyprbindings, #pulseaudio, #network, #battery,
         #custom-notification, #tray, #custom-exit {
           font-weight: bold;
-          background: #${config.stylix.base16Scheme.base0A};
-          color: #${config.stylix.base16Scheme.base00};
+          background: #${config.stylix.base16Scheme.base02};
+          color: #FFFFFF;
           margin: 4px 0px;
           margin-right: 7px;
           border-radius: 10px 24px 10px 24px;
