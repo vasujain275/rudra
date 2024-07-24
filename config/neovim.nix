@@ -33,7 +33,7 @@ in
         python310Packages.pylint
         nodePackages.eslint
         # Additional tools
-        nodePackages.emmet-ls
+        emmet-ls
         nodePackages."@prisma/language-server"
       ];
       plugins = with pkgs.vimPlugins; [
