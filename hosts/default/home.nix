@@ -11,7 +11,7 @@
     ../../config/waybar.nix
     ../../config/rofi/rofi.nix
     ../../config/wlogout.nix
-    # ../../config/neovim.nix
+    ../../config/neovim.nix
   ];
   
   home.file.".config/wlogout/icons" = {

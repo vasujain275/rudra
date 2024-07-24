@@ -13,15 +13,28 @@ in
       vimdiffAlias = true;
       withNodeJs = true;
       extraPackages = with pkgs; [
-        lua-language-server
         gopls
-        wl-clipboard
         luajitPackages.lua-lsp
-        nil
-        rust-analyzer
         yaml-language-server
-        pyright
-        marksman
+      clang-tools # for clangd
+      lua-language-server
+      rust-analyzer
+      nodePackages.typescript-language-server
+      nodePackages.vscode-langservers-extracted # for html, cssls, etc.
+      nodePackages.svelte-language-server
+      nodePackages.graphql-language-service-cli
+      nodePackages."@tailwindcss/language-server"
+      nodePackages.pyright
+      # Linters and formatters
+      nodePackages.prettier
+      stylua
+      python310Packages.isort
+      python310Packages.black
+      python310Packages.pylint
+      nodePackages.eslint
+      # Additional tools
+      nodePackages.emmet-ls
+      nodePackages."@prisma/language-server"
       ];
       plugins = with pkgs.vimPlugins; [
 
