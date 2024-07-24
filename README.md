@@ -10,4 +10,4 @@
   </a>
 </p>
 
-> **रुद्र** (Rudra) is the Hindu god my flake is named after, symbolizing transformation and renewal. Just as Rudra embodies both destruction and regeneration, this NixOS configuration aims to provide a robust and dynamic setup, adaptable to change and growth.
+> **रुद्र** (Rudra) is the Hindu god my flake is named after, symbolizing transformation and renewal.
