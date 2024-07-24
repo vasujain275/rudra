@@ -251,7 +251,7 @@
     wget
     killall
     eza
-    # starship
+    #starship
     # oh-my-posh
     imagemagick
     zoxide
