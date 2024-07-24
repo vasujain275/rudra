@@ -60,6 +60,7 @@
 
   programs.neovim = {
       plugins = with pkgs.vimPlugins; [
+        nvim-treesitter.withAllGrammars
         (nvim-treesitter.withPlugins (plugins: with plugins; [
           tree-sitter-json
           tree-sitter-javascript
