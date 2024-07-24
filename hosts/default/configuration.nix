@@ -136,11 +136,38 @@
 
 
   programs = {
-    nix-ld = {
-      enable = true;
-      package = pkgs.nix-ld-rs;
-    };
+    # nix-ld = {
+    #   enable = true;
+    #   package = pkgs.nix-ld-rs;
+    # };
     firefox.enable = false;
+    neovim = {
+      enable = false;
+      plugins = with pkgs.vimPlugins; [
+        (nvim-treesitter.withPlugins (plugins: with plugins; [
+          tree-sitter-json
+          tree-sitter-javascript
+          tree-sitter-typescript
+          tree-sitter-tsx
+          tree-sitter-yaml
+          tree-sitter-html
+          tree-sitter-css
+          tree-sitter-prisma
+          tree-sitter-markdown
+          tree-sitter-markdown-inline
+          tree-sitter-svelte
+          tree-sitter-graphql
+          tree-sitter-bash
+          tree-sitter-lua
+          tree-sitter-vim
+          tree-sitter-dockerfile
+          tree-sitter-gitignore
+          tree-sitter-query
+          tree-sitter-vimdoc
+          tree-sitter-c
+        ]))
+      ];
+    }
     starship = {
       enable = true;
       settings = {
@@ -266,6 +293,31 @@
     os-prober
     tmux
     neovim
+
+    # Language Servers
+    gopls
+    luajitPackages.lua-lsp
+    yaml-language-server
+    clang-tools # for clangd
+    lua-language-server
+    rust-analyzer
+    nodePackages.typescript-language-server
+    nodePackages.vscode-langservers-extracted # for html, cssls, etc.
+    nodePackages.svelte-language-server
+    nodePackages.graphql-language-service-cli
+    nodePackages."@tailwindcss/language-server"
+    pyright
+    # Linters and formatters
+    nodePackages.prettier
+    stylua
+    python310Packages.isort
+    python310Packages.black
+    python310Packages.pylint
+    nodePackages.eslint
+    # Additional tools
+    emmet-ls
+    nodePackages."@prisma/language-server"
+
     tree-sitter
     rustup
     nodePackages_latest.pnpm
