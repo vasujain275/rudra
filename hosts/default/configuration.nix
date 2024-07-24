@@ -265,7 +265,7 @@
     ntfs3g
     os-prober
     tmux
-    neovim
+    #neovim
     tree-sitter
     rustup
     nodePackages_latest.pnpm
