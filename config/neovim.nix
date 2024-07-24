@@ -41,7 +41,7 @@ in
         nvim-cmp 
         {
           plugin = nvim-cmp;
-          config = toLuaFile ./nvim/plugin/autocomplete.lua;
+          config = toLuaFile ./nvim/plugins/autocomplete.lua;
         }
         cmp_luasnip
         cmp-nvim-lsp
@@ -62,7 +62,7 @@ in
 
         {
           plugin = conform-nvim;
-          config = toLuaFile ./nvim/plugin/formatting.lua;
+          config = toLuaFile ./nvim/plugins/formatting.lua;
         }
 
         {
@@ -90,12 +90,12 @@ in
         cmp-nvim-lsp
         {
           plugin = nvim-lspconfig;
-          config = toLuaFile ./nvim/plugin/lsp.lua;
+          config = toLuaFile ./nvim/plugins/lsp.lua;
         }
 
         {
           plugin = mini-nvim;
-          config = toLuaFile ./nvim/plugin/mini-nvim.lua;
+          config = toLuaFile ./nvim/plugins/mini-nvim.lua;
         }
 
         {
