@@ -141,33 +141,6 @@
     #   package = pkgs.nix-ld-rs;
     # };
     firefox.enable = false;
-    neovim = {
-      enable = false;
-      plugins = with pkgs.vimPlugins; [
-        (nvim-treesitter.withPlugins (plugins: with plugins; [
-          tree-sitter-json
-          tree-sitter-javascript
-          tree-sitter-typescript
-          tree-sitter-tsx
-          tree-sitter-yaml
-          tree-sitter-html
-          tree-sitter-css
-          tree-sitter-prisma
-          tree-sitter-markdown
-          tree-sitter-markdown-inline
-          tree-sitter-svelte
-          tree-sitter-graphql
-          tree-sitter-bash
-          tree-sitter-lua
-          tree-sitter-vim
-          tree-sitter-dockerfile
-          tree-sitter-gitignore
-          tree-sitter-query
-          tree-sitter-vimdoc
-          tree-sitter-c
-        ]))
-      ];
-    }
     starship = {
       enable = true;
       settings = {
