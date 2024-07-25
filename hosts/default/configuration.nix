@@ -325,6 +325,7 @@
     htop
     brave
     firefox
+    google-chrome
     libvirt
     lxqt.lxqt-policykit
     lm_sensors

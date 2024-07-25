@@ -155,6 +155,9 @@ in
       '';
       extraLuaConfig = ''
         ${builtins.readFile ./nvim/plugins/treesitter.lua}
+        ${builtins.readFile ./nvim/core/keymaps.lua}
+        ${builtins.readFile ./nvim/core/options.lua}
+        ${builtins.readFile ./nvim/core/autocommands.lua}
       '';
     };
   };

@@ -61,27 +61,27 @@
   programs.neovim = {
       plugins = with pkgs.vimPlugins; [
         nvim-treesitter.withAllGrammars
-        (nvim-treesitter.withPlugins (plugins: with plugins; [
-          tree-sitter-json
-          tree-sitter-javascript
-          tree-sitter-typescript
-          tree-sitter-tsx
-          tree-sitter-yaml
-          tree-sitter-html
-          tree-sitter-css
-          tree-sitter-prisma
-          tree-sitter-markdown
-          tree-sitter-markdown-inline
-          tree-sitter-svelte
-          tree-sitter-graphql
-          tree-sitter-bash
-          tree-sitter-lua
-          tree-sitter-vim
-          tree-sitter-dockerfile
-          tree-sitter-gitignore
-          tree-sitter-query
-          tree-sitter-vimdoc
-          tree-sitter-c
+        (nvim-treesitter.withPlugins (p: [
+          p.json
+          p.javascript
+          p.typescript
+          p.tsx
+          p.yaml
+          p.html
+          p.css
+          p.prisma
+          p.markdown
+          p.markdown-inline
+          p.svelte
+          p.graphql
+          p.bash
+          p.lua
+          p.vim
+          p.dockerfile
+          p.gitignore
+          p.query
+          p.vimdoc
+          p.c
         ]))
       ];
   };
