@@ -8,7 +8,6 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   imports = [
-    ../../config/waybar.nix
     ../../config/rofi/rofi.nix
     ../../config/wlogout.nix
     # ../../config/neovim.nix
