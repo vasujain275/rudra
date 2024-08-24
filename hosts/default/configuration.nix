@@ -266,6 +266,8 @@
     os-prober
     tmux
     neovim
+    vscode
+    zed-editor
 
     # Language Servers
     gopls
