@@ -111,23 +111,12 @@
 
 
   # home.sessionVariables = {
-  #   # EDITOR = "emacs";
+  #   # EDITOR = "nvim";
   # };
   #
   programs = {
     home-manager = {
       enable = true;
-    };
-    kitty = {
-      enable = true;
-      package = pkgs.kitty;
-      extraConfig = ''
-        font_size 22.0
-        window_margin_width 2
-        sync_to_monitor yes
-        term xterm-256color
-        background_opacity 0.80
-      '';
     };
   };
 }

@@ -183,6 +183,7 @@
     killall
     eza
     starship
+    kitty
     # oh-my-posh
     imagemagick
     zoxide
