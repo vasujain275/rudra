@@ -27,12 +27,12 @@
       "vm.max_map_count" = 2147483642;
     };
     # Bootloader.
+    loader.efi.canTouchEfiVariables = true;
+    loader.efi.efiSysMountPoint = "/boot";
     loader.grub = {
         enable = true;              # Enable GRUB
-        version = 2;                # Use GRUB version 2
         device = "nodev";           # For UEFI systems, GRUB is installed to the EFI partition
         efiSupport = true;          # Enable UEFI support
-        efiInstallAsRemovable = true; # Optionally, install GRUB as a removable device entry
         useOSProber = true;         # Detect other operating systems
       };
 
