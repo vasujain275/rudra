@@ -57,33 +57,33 @@
     # })
   ];
 
-  programs.neovim = {
-      plugins = with pkgs.vimPlugins; [
-        nvim-treesitter.withAllGrammars
-        (nvim-treesitter.withPlugins (p: [
-          p.json
-          p.javascript
-          p.typescript
-          p.tsx
-          p.yaml
-          p.html
-          p.css
-          p.prisma
-          p.markdown
-          p.markdown-inline
-          p.svelte
-          p.graphql
-          p.bash
-          p.lua
-          p.vim
-          p.dockerfile
-          p.gitignore
-          p.query
-          p.vimdoc
-          p.c
-        ]))
-      ];
-  };
+  # programs.neovim = {
+  #     plugins = with pkgs.vimPlugins; [
+  #       nvim-treesitter.withAllGrammars
+  #       (nvim-treesitter.withPlugins (p: [
+  #         p.json
+  #         p.javascript
+  #         p.typescript
+  #         p.tsx
+  #         p.yaml
+  #         p.html
+  #         p.css
+  #         p.prisma
+  #         p.markdown
+  #         p.markdown-inline
+  #         p.svelte
+  #         p.graphql
+  #         p.bash
+  #         p.lua
+  #         p.vim
+  #         p.dockerfile
+  #         p.gitignore
+  #         p.query
+  #         p.vimdoc
+  #         p.c
+  #       ]))
+  #     ];
+  # };
 
   services = {
     hypridle = {

@@ -208,37 +208,37 @@
     vscode
     zed-editor
     pavucontrol
-    jetbrains.idea-ultimate
+    jetbrains.idea-community-bin
     pulseaudio
     onlyoffice-bin
     libreoffice-qt6-fresh
     spacedrive
 
     # Language Servers
-    gopls
-    luajitPackages.lua-lsp
-    yaml-language-server
-    clang-tools # for clangd
-    lua-language-server
-    rust-analyzer
-    nodePackages.typescript-language-server
-    nodePackages.vscode-langservers-extracted # for html, cssls, etc.
-    nodePackages.svelte-language-server
-    nodePackages.graphql-language-service-cli
-    nodePackages."@tailwindcss/language-server"
-    pyright
+    # gopls
+    # luajitPackages.lua-lsp
+    # yaml-language-server
+    # clang-tools # for clangd
+    # lua-language-server
+    # rust-analyzer
+    # nodePackages.typescript-language-server
+    # nodePackages.vscode-langservers-extracted # for html, cssls, etc.
+    # nodePackages.svelte-language-server
+    # nodePackages.graphql-language-service-cli
+    # nodePackages."@tailwindcss/language-server"
+    # pyright
     # Linters and formatters
-    nodePackages.prettier
-    stylua
-    python310Packages.isort
-    python310Packages.black
-    python310Packages.pylint
-    nodePackages.eslint
+    # nodePackages.prettier
+    # stylua
+    # python310Packages.isort
+    # python310Packages.black
+    # python310Packages.pylint
+    # nodePackages.eslint
     # Additional tools
-    emmet-ls
-    nodePackages."@prisma/language-server"
+    # emmet-ls
+    # nodePackages."@prisma/language-server"
 
-    tree-sitter
+    # tree-sitter
     rustup
     nodePackages_latest.pnpm
     nodePackages_latest.yarn
@@ -325,7 +325,6 @@
     neovide
     greetd.tuigreet
     ansible
-    davinci-resolve
   ];
 
   fonts = {
@@ -387,7 +386,7 @@
     fstrim.enable = true;
     gvfs.enable = true;
     openssh.enable = true;
-    flatpak.enable = false;
+    flatpak.enable = true;
     printing = {
       enable = true;
       drivers = [
