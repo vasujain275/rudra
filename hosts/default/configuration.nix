@@ -208,7 +208,7 @@
     vscode
     zed-editor
     pavucontrol
-    jetbrains-toolbox
+    jetbrains.idea-ultimate
     pulseaudio
     onlyoffice-bin
     libreoffice-qt6-fresh
