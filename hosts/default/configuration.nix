@@ -207,6 +207,9 @@
     neovim
     vscode
     zed-editor
+    pavucontrol
+    jetbrains-toolbox
+    pulseaudio
 
     # Language Servers
     gopls
