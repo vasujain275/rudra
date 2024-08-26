@@ -27,8 +27,15 @@
       "vm.max_map_count" = 2147483642;
     };
     # Bootloader.
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
+    loader.grub = {
+        enable = true;              # Enable GRUB
+        version = 2;                # Use GRUB version 2
+        device = "nodev";           # For UEFI systems, GRUB is installed to the EFI partition
+        efiSupport = true;          # Enable UEFI support
+        efiInstallAsRemovable = true; # Optionally, install GRUB as a removable device entry
+        useOSProber = true;         # Detect other operating systems
+      };
+
     # Make /tmp a tmpfs
     tmp = {
       useTmpfs = true;
@@ -83,7 +90,7 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-  
+
     # Styling Options
   stylix = {
     enable = true;
@@ -378,7 +385,7 @@
     printing = {
       enable = true;
       drivers = [
-        # pkgs.hplipWithPlugin 
+        # pkgs.hplipWithPlugin
       ];
     };
     auto-cpufreq = {
@@ -526,6 +533,5 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  system.stateVersion = "24.05"; 
+  system.stateVersion = "24.05";
 }
-
