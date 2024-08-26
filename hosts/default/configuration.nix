@@ -210,6 +210,9 @@
     pavucontrol
     jetbrains-toolbox
     pulseaudio
+    onlyoffice-bin
+    libreoffice-qt6-fresh
+    spacedrive
 
     # Language Servers
     gopls
