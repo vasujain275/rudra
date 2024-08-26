@@ -213,6 +213,7 @@
     onlyoffice-bin
     libreoffice-qt6-fresh
     spacedrive
+    localsend
 
     # Language Servers
     # gopls
