@@ -214,7 +214,7 @@
     libreoffice-qt6-fresh
     spacedrive
     localsend
-    upower
+    ciscoPacketTracer8
 
     # Language Servers
     # gopls
