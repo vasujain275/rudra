@@ -214,6 +214,7 @@
     libreoffice-qt6-fresh
     spacedrive
     localsend
+    upower
 
     # Language Servers
     # gopls
@@ -381,6 +382,9 @@
     smartd = {
       enable = false;
       autodetect = true;
+    };
+    cloudflare-warp = {
+      enable = true;
     };
     libinput.enable = true;
     fstrim.enable = true;
