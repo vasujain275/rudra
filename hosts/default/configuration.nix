@@ -90,7 +90,7 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-
+  
     # Styling Options
   stylix = {
     enable = true;
@@ -400,7 +400,7 @@
     printing = {
       enable = true;
       drivers = [
-        # pkgs.hplipWithPlugin
+        pkgs.hplipWithPlugin
       ];
     };
     auto-cpufreq = {

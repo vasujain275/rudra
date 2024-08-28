@@ -33,11 +33,11 @@
       gtk-application-prefer-dark-theme = 1;
     };
   };
-  # qt = {
-  #   enable = true;
-  #   style.name = "adwaita-dark";
-  #   platformTheme.name = "gtk3";
-  # };
+  qt = {
+    enable = true;
+    style.name = "adwaita-dark";
+    platformTheme.name = "gtk3";
+  };
 
   home.packages = [
     # (import ../../scripts/emopicker9000.nix { inherit pkgs; })
