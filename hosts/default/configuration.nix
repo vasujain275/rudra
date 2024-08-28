@@ -209,6 +209,7 @@
     zed-editor
     pavucontrol
     jetbrains.idea-community-bin
+    jetbrains.goland
     pulseaudio
     onlyoffice-bin
     libreoffice-qt6-fresh
