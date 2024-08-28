@@ -387,6 +387,11 @@
     cloudflare-warp = {
       enable = true;
     };
+    supergfxd.enable = true;
+    asusd = {
+      enable = true;
+      enableUserService = true;
+    };
     libinput.enable = true;
     fstrim.enable = true;
     gvfs.enable = true;
