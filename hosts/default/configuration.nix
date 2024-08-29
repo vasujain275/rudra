@@ -216,6 +216,8 @@
     spacedrive
     localsend
     ciscoPacketTracer8
+    gh
+    youtube-music
 
     # Language Servers
     # gopls
