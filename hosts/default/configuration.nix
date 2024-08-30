@@ -394,6 +394,10 @@
       enable = true;
       enableUserService = true;
     };
+    tailscale = {
+      enable = true;
+      useRoutingFeatures = "client";
+    };
     libinput.enable = true;
     fstrim.enable = true;
     gvfs.enable = true;
