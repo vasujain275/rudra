@@ -143,10 +143,10 @@
 
 
   programs = {
-    # nix-ld = {
-    #   enable = true;
-    #   package = pkgs.nix-ld-rs;
-    # };
+    nix-ld = {
+      enable = true;
+      package = pkgs.nix-ld-rs;
+    };
     firefox.enable = false;
     dconf.enable = true;
     #seahorse.enable = true;
@@ -218,6 +218,7 @@
     ciscoPacketTracer8
     gh
     youtube-music
+    gnumake
 
     # Language Servers
     # gopls
