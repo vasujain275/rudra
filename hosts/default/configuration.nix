@@ -222,6 +222,7 @@
     bc
     kdePackages.dolphin
     progress
+    inputs.nixCats.packages.${pkgs.system}.nixCats
 
     # Language Servers
     # gopls

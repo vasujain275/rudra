@@ -3,21 +3,29 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    #hyprland.url = "github:hyprwm/Hyprland";
     stylix.url = "github:danth/stylix";
-     home-manager = {
-       url = "github:nix-community/home-manager/master";
-       inputs.nixpkgs.follows = "nixpkgs";
-     };
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixCats = {
+      url = "path:./modules/nixCats";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, nixCats, ... }@inputs: {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+      specialArgs = { inherit inputs; };
       modules = [
         ./hosts/default/configuration.nix
         inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.default
+        ({ pkgs, ... }: {
+          environment.systemPackages = [
+            nixCats.packages.${pkgs.system}.nixCats
+          ];
+        })
       ];
     };
   };
