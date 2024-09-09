@@ -7,6 +7,7 @@ return {
 
       conform.setup {
         formatters_by_ft = {
+          go = { 'gofmt' },
           javascript = { 'prettier' },
           typescript = { 'prettier' },
           javascriptreact = { 'prettier' },
@@ -21,6 +22,7 @@ return {
           liquid = { 'prettier' },
           lua = { 'stylua' },
           python = { 'isort', 'black' },
+          sql = { 'sqlfmt' },
         },
         format_on_save = {
           lsp_fallback = true,
