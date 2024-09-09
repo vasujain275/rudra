@@ -11,12 +11,102 @@
     ../../config/rofi/rofi.nix
     ../../config/wlogout.nix
   ];
-  
+ 
+  # Hyrpland Config
+  home.file.".config/hypr" = {
+  source = ../../dotfiles/.config/hypr;
+  recursive = true;
+  };
+
+  # wlogout icons
   home.file.".config/wlogout/icons" = {
   source = ../../config/wlogout;
   recursive = true;
   };
+ 
   
+  # Top Level Files symlinks
+  home.file.".zshrc" = {
+  source = ../../dotfiles/.zshrc;
+  };
+
+  home.file.".xinitrc" = {
+  source = ../../dotfiles/.xinitrc;
+  };
+
+  home.file.".gitconfig" = {
+  source = ../../dotfiles/.gitconfig;
+  };
+
+  home.file.".ideavimrc" = {
+  source = ../../dotfiles/.ideavimrc;
+  };
+
+  home.file.".nirc" = {
+  source = ../../dotfiles/.nirc;
+  };
+
+  home.file.".local/bin/wallpaper" = {
+  source = ../../dotfiles/.local/bin/wallpaper;
+  };
+
+  home.file.".config/alacritty" = {
+  source = ../../dotfiles/.config/alacritty;
+  recursive = true;
+  };
+
+  home.file.".config/dunst" = {
+  source = ../../dotfiles/.config/dunst;
+  recursive = true;
+  };
+
+  home.file.".config/fastfetch" = {
+  source = ../../dotfiles/.config/fastfetch;
+  recursive = true;
+  };
+
+  home.file.".config/kitty" = {
+  source = ../../dotfiles/.config/kitty;
+  recursive = true;
+  };
+
+  home.file.".config/mpv" = {
+  source = ../../dotfiles/.config/mpv;
+  recursive = true;
+  };
+
+  home.file.".config/tmux" = {
+  source = ../../dotfiles/.config/tmux;
+  recursive = true;
+  };
+
+  home.file.".config/waybar" = {
+  source = ../../dotfiles/.config/waybar;
+  recursive = true;
+  };
+
+  home.file.".config/yazi" = {
+  source = ../../dotfiles/.config/yazi;
+  recursive = true;
+  };
+
+  home.file.".config/kwalletrc" = {
+  source = ../../dotfiles/.config/kwalletrc;
+  };
+
+  home.file.".config/starship.toml" = {
+  source = ../../dotfiles/.config/starship.toml;
+  };
+
+  home.file.".config/mimeapps.list" = {
+  source = ../../dotfiles/.config/mimeapps.list;
+  };
+
+  home.file.".config/wezterm" = {
+  source = ../../dotfiles/.config/wezterm;
+  };
+
+
   # Set environment variables
 
   home.sessionVariables = {
@@ -47,7 +137,6 @@
 
 
   # Add custom paths to PATH
-
   home.sessionPath = [
     "$HOME/.local/bin"
     "$HOME/go/bin"
@@ -90,34 +179,6 @@
     #   inherit host;
     # })
   ];
-
-  # programs.neovim = {
-  #     plugins = with pkgs.vimPlugins; [
-  #       nvim-treesitter.withAllGrammars
-  #       (nvim-treesitter.withPlugins (p: [
-  #         p.json
-  #         p.javascript
-  #         p.typescript
-  #         p.tsx
-  #         p.yaml
-  #         p.html
-  #         p.css
-  #         p.prisma
-  #         p.markdown
-  #         p.markdown-inline
-  #         p.svelte
-  #         p.graphql
-  #         p.bash
-  #         p.lua
-  #         p.vim
-  #         p.dockerfile
-  #         p.gitignore
-  #         p.query
-  #         p.vimdoc
-  #         p.c
-  #       ]))
-  #     ];
-  # };
 
   services = {
     hypridle = {

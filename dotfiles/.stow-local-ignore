@@ -1,0 +1,24 @@
+# Comments and blank lines are allowed.
+
+RCS
+.+,v
+
+CVS
+\.\#.+       # CVS conflict files / emacs lock files
+\.cvsignore
+
+\.svn
+_darcs
+\.hg
+
+\.git
+\.gitignore
+
+
+^/README.*
+^/LICENSE.*
+^/COPYING
+
+.config/tmux/plugins
+bk
+services

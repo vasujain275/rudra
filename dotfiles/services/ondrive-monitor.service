@@ -1,0 +1,13 @@
+[Unit]
+Description=Ondrive Sync Service
+After=network-online.target
+
+[Service]
+Type=simple
+User=vasu
+ExecStart=/usr/bin/onedrive --monitor
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

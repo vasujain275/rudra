@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# Remove the old wallpaper if it exists
+rm -f "$HOME/.cache/wall.png"
+
+# Check if an argument is provided
+if [ -z "$1" ]; then
+  echo "Usage: $0 <path-to-image>"
+  exit 1
+fi
+
+# Input file
+input_file="$1"
+
+# Output file path
+output_file="$HOME/.cache/wall.png"
+
+# Create the cache directory if it doesn't exist
+mkdir -p "$HOME/.cache"
+
+# Get the file extension
+extension="${input_file##*.}"
+
+# Convert to PNG if necessary
+case "$extension" in
+  png|PNG)
+    # Directly copy if it's already a PNG
+    cp "$input_file" "$output_file"
+    ;;
+  jpg|jpeg|JPG|JPEG)
+    # Convert to PNG using ImageMagick with optimized settings
+    magick "$input_file" "$output_file"
+    ;;
+  *)
+    echo "Unsupported file format. Please provide a PNG, JPG, or JPEG file."
+    exit 1
+    ;;
+esac
+
+echo "Wallpaper image created at $output_file"
+
+swww img ~/.cache/wall.png
+
+
