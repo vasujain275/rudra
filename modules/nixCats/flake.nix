@@ -61,9 +61,9 @@
           pyright
           nodePackages.prettier
           stylua
-          python310Packages.isort
-          python310Packages.black
-          python310Packages.pylint
+          isort
+          black
+          pylint
           nodePackages.eslint
           emmet-ls
           nodePackages."@prisma/language-server"
