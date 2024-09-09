@@ -50,7 +50,7 @@
           gopls
           luajitPackages.lua-lsp
           yaml-language-server
-          clang-tools # for clangd
+          clang-tools
           lua-language-server
           rust-analyzer
           nodePackages.typescript-language-server

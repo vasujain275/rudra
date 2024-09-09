@@ -185,6 +185,7 @@
     python3
     stow
     libgcc
+    clang
     zig
     wget
     killall
