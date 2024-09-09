@@ -47,21 +47,27 @@
       lspsAndRuntimeDeps = {
         general = with pkgs; [
           stdenv.cc.cc
-          nodePackages.typescript-language-server
-          nodePackages.eslint
-          nodePackages.prettier
-          nodePackages_latest.graphql-language-service-cli
-          vscode-extensions.prisma.prisma
-          vscode-langservers-extracted
-          biome
-          emmet-ls
-          tailwindcss-language-server
+          gopls
+          luajitPackages.lua-lsp
+          yaml-language-server
+          clang-tools # for clangd
           lua-language-server
           rust-analyzer
-          stylua
-          clang-tools
-          svelte-language-server
+          nodePackages.typescript-language-server
+          nodePackages.vscode-langservers-extracted # for html, cssls, etc.
+          nodePackages.svelte-language-server
+          nodePackages.graphql-language-service-cli
+          nodePackages."@tailwindcss/language-server"
           pyright
+          nodePackages.prettier
+          stylua
+          python310Packages.isort
+          python310Packages.black
+          python310Packages.pylint
+          nodePackages.eslint
+          emmet-ls
+          nodePackages."@prisma/language-server"
+
         ];
       };
 

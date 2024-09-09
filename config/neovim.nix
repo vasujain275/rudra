@@ -28,11 +28,10 @@ in
         # Linters and formatters
         nodePackages.prettier
         stylua
-        python310Packages.isort
-        python310Packages.black
-        python310Packages.pylint
+        isort
+        black
+        pylint
         nodePackages.eslint
-        # Additional tools
         emmet-ls
         nodePackages."@prisma/language-server"
       ];

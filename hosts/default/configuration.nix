@@ -224,31 +224,6 @@
     progress
     inputs.nixCats.packages.${pkgs.system}.nixCats
 
-    # Language Servers
-    # gopls
-    # luajitPackages.lua-lsp
-    # yaml-language-server
-    # clang-tools # for clangd
-    # lua-language-server
-    # rust-analyzer
-    # nodePackages.typescript-language-server
-    # nodePackages.vscode-langservers-extracted # for html, cssls, etc.
-    # nodePackages.svelte-language-server
-    # nodePackages.graphql-language-service-cli
-    # nodePackages."@tailwindcss/language-server"
-    # pyright
-    # Linters and formatters
-    # nodePackages.prettier
-    # stylua
-    # python310Packages.isort
-    # python310Packages.black
-    # python310Packages.pylint
-    # nodePackages.eslint
-    # Additional tools
-    # emmet-ls
-    # nodePackages."@prisma/language-server"
-
-    # tree-sitter
     rustup
     nodePackages_latest.pnpm
     nodePackages_latest.yarn
