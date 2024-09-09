@@ -10,14 +10,48 @@
   imports = [
     ../../config/rofi/rofi.nix
     ../../config/wlogout.nix
-    # ../../config/neovim.nix
   ];
   
   home.file.".config/wlogout/icons" = {
   source = ../../config/wlogout;
   recursive = true;
   };
+  
+  # Set environment variables
 
+  home.sessionVariables = {
+
+    EDITOR = "nixCats";
+    VISUAL = "nixCats";
+    TERMINAL = "kitty";
+    BROWSER = "firefox";
+
+    # XDG variables
+    XDG_CONFIG_HOME = "$HOME/.config";
+    XDG_DATA_HOME = "$HOME/.local/share";
+    XDG_STATE_HOME = "$HOME/.local/state";
+    XDG_CACHE_HOME = "$HOME/.cache";
+    XDG_SCREENSHOTS_DIR = "$HOME/Pictures/screenshots";
+
+    # Other variables
+    JAVA_AWT_WM_NONREPARENTING = "1";
+    XDG_SESSION_TYPE = "wayland";
+    XDG_CURRENT_DESKTOP = "Hyprland";
+    XDG_SESSION_DESKTOP = "Hyprland";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    GBM_BACKEND = "nvidia-drm";
+
+    # Localization
+    LC_ALL = "en_US.UTF-8";
+  };
+
+
+  # Add custom paths to PATH
+
+  home.sessionPath = [
+    "$HOME/.local/bin"
+    "$HOME/go/bin"
+  ];
 
   # Styling
   stylix.targets.waybar.enable = false;
