@@ -33,7 +33,7 @@ in
       ".config/fastfetch".source = ../../dotfiles/.config/fastfetch;
       ".config/kitty".source = ../../dotfiles/.config/kitty;
       ".config/mpv".source = ../../dotfiles/.config/mpv;
-      ".config/tmux".source = ../../dotfiles/.config/tmux;
+      ".config/tmux/tmux.conf".source = ../../dotfiles/.config/tmux/tmux.conf;
       ".config/waybar".source = ../../dotfiles/.config/waybar;
       ".config/yazi".source = ../../dotfiles/.config/yazi;
       ".config/wezterm".source = ../../dotfiles/.config/wezterm;
