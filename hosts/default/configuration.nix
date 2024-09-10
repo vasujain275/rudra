@@ -176,7 +176,7 @@ in
     meson hyprpicker swww hyprlock waypaper waybar dunst ninja brightnessctl
     virt-viewer swappy appimage-run networkmanagerapplet yad inxi playerctl nh
     nixfmt-rfc-style libvirt grim slurp file-roller swaynotificationcenter imv
-    mpv gimp pavucontrol tree spotify neovide greetd.tuigreet ansible
+    mpv gimp pavucontrol tree spotify neovide greetd.tuigreet ansible ollama
   ];
 
   fonts.packages = with pkgs; [
