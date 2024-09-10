@@ -3,15 +3,9 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for neovim
-      { 'williamboman/mason.nvim',
-        enabled = require('nixCatsUtils').lazyAdd(true, false),
-      },
-      { 'williamboman/mason-lspconfig.nvim',
-        enabled = require('nixCatsUtils').lazyAdd(true, false),
-      },
-      { 'WhoIsSethDaniel/mason-tool-installer.nvim',
-        enabled = require('nixCatsUtils').lazyAdd(true, false),
-      },
+      { 'williamboman/mason.nvim', enabled = require('nixCatsUtils').lazyAdd(true, false) },
+      { 'williamboman/mason-lspconfig.nvim', enabled = require('nixCatsUtils').lazyAdd(true, false) },
+      { 'WhoIsSethDaniel/mason-tool-installer.nvim', enabled = require('nixCatsUtils').lazyAdd(true, false) },
 
       {
         'folke/lazydev.nvim',
@@ -119,7 +113,7 @@ return {
       local servers = {
         clangd = {},
         rust_analyzer = {},
-        biome = {},
+        ts_ls = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes { ...},
@@ -174,7 +168,7 @@ return {
           'clangd',
           'lua_ls',
           'rust_analyzer',
-          -- 'biome',
+          'biome',
           'tsserver',
           'html',
           'cssls',
