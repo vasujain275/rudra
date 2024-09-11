@@ -161,18 +161,18 @@ in
 
 environment.systemPackages = with pkgs; [
   # Text editors and IDEs
-  vim neovim vscode zed-editor jetbrains.idea-community-bin
+  vim neovim vscode zed-editor jetbrains.idea-community-bin neovide
 
   # Programming languages and tools
   go lua python3 clang zig rustup
   nodePackages_latest.pnpm nodePackages_latest.yarn nodePackages_latest.nodejs
-  bun jdk
+  bun jdk fnm
 
   # Version control and development tools
   git gh lazygit lazydocker bruno gnumake coreutils nixfmt-rfc-style meson ninja
 
   # Shell and terminal utilities
-  stow wget killall eza starship kitty zoxide fzf tmux progress
+  stow wget killall eza starship kitty zoxide fzf tmux progress tree
   inputs.nixCats.packages.${pkgs.system}.nixCats
 
   # File management and archives
@@ -223,7 +223,7 @@ environment.systemPackages = with pkgs; [
   cliphist
 
   # Fun and customization
-  cmatrix lolcat fastfetch onefetch
+  cmatrix lolcat fastfetch onefetch microfetch
 
   # Networking
   networkmanagerapplet
@@ -232,7 +232,7 @@ environment.systemPackages = with pkgs; [
   ciscoPacketTracer8
 
   # Music and streaming
-  youtube-music
+  youtube-music spotify
 
   # Miscellaneous
   greetd.tuigreet
