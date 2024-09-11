@@ -159,25 +159,84 @@ in
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    vim go lua python3 stow libgcc clang zig wget killall eza starship kitty
-    imagemagick zoxide fnm yazi fzf obsidian git hyprshot hypridle ntfs3g
-    os-prober tmux neovim vscode zed-editor pavucontrol jetbrains.idea-community-bin
-    pulseaudio onlyoffice-bin libreoffice-qt6-fresh spacedrive localsend
-    ciscoPacketTracer8 gh youtube-music gnumake coreutils bc kdePackages.dolphin
-    progress inputs.nixCats.packages.${pkgs.system}.nixCats rustup
-    nodePackages_latest.pnpm nodePackages_latest.yarn nodePackages_latest.nodejs
-    lazygit lazydocker bruno bun cliphist telegram-desktop yt-dlp aria2
-    auto-cpufreq stremio hugo jdk nvtopPackages.nvidia onedrive tailscale p7zip
-    zoom-us vscode zed-editor vesktop qbittorrent cloudflare-warp localsend
-    cmatrix lolcat fastfetch onefetch htop btop firefox google-chrome libvirt
-    lxqt.lxqt-policykit lm_sensors unzip unrar libnotify v4l-utils ydotool duf
-    ncdu wl-clipboard pciutils ffmpeg socat cowsay ripgrep lshw bat pkg-config
-    meson hyprpicker swww hyprlock waypaper waybar dunst ninja brightnessctl
-    virt-viewer swappy appimage-run networkmanagerapplet yad inxi playerctl nh
-    nixfmt-rfc-style libvirt grim slurp file-roller swaynotificationcenter imv
-    mpv gimp pavucontrol tree spotify neovide greetd.tuigreet ansible ollama
-  ];
+environment.systemPackages = with pkgs; [
+  # Text editors and IDEs
+  vim neovim vscode zed-editor jetbrains.idea-community-bin
+
+  # Programming languages and tools
+  go lua python3 clang zig rustup
+  nodePackages_latest.pnpm nodePackages_latest.yarn nodePackages_latest.nodejs
+  bun jdk
+
+  # Version control and development tools
+  git gh lazygit lazydocker bruno gnumake coreutils nixfmt-rfc-style meson ninja
+
+  # Shell and terminal utilities
+  stow wget killall eza starship kitty zoxide fzf tmux progress
+  inputs.nixCats.packages.${pkgs.system}.nixCats
+
+  # File management and archives
+  yazi p7zip unzip unrar file-roller ncdu duf
+
+  # System monitoring and management
+  htop btop lm_sensors inxi auto-cpufreq nvtopPackages.nvidia
+
+  # Network and internet tools
+  aria2 qbittorrent cloudflare-warp tailscale onedrive
+
+  # Audio and video
+  pulseaudio pavucontrol ffmpeg mpv
+
+  # Image and graphics
+  imagemagick gimp hyprpicker swww hyprlock waypaper imv
+
+  # Productivity and office
+  obsidian onlyoffice-bin libreoffice-qt6-fresh spacedrive hugo
+
+  # Communication and social
+  telegram-desktop zoom-us vesktop
+
+  # Browsers
+  firefox google-chrome
+
+  # Gaming and entertainment
+  stremio
+
+  # System utilities
+  libgcc bc kdePackages.dolphin lxqt.lxqt-policykit libnotify v4l-utils ydotool
+  pciutils socat cowsay ripgrep lshw bat pkg-config brightnessctl virt-viewer
+  swappy appimage-run yad playerctl nh ansible
+
+  # Wayland specific
+  hyprshot hypridle grim slurp waybar dunst wl-clipboard swaynotificationcenter
+
+  # Virtualization
+  libvirt
+
+  # File systems
+  ntfs3g os-prober
+
+  # Downloaders
+  yt-dlp localsend
+
+  # Clipboard managers
+  cliphist
+
+  # Fun and customization
+  cmatrix lolcat fastfetch onefetch
+
+  # Networking
+  networkmanagerapplet
+
+  # Education
+  ciscoPacketTracer8
+
+  # Music and streaming
+  youtube-music
+
+  # Miscellaneous
+  greetd.tuigreet
+];
 
   fonts.packages = with pkgs; [
     noto-fonts-emoji
@@ -229,6 +288,10 @@ in
     tailscale = {
       enable = true;
       useRoutingFeatures = "client";
+    };
+    ollama = {
+      enable=true;
+      acceleration = "cuda";
     };
     libinput.enable = true;
     fstrim.enable = true;
