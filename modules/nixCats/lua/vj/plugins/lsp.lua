@@ -114,6 +114,7 @@ return {
         clangd = {},
         rust_analyzer = {},
         ts_ls = {},
+        gopls = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes { ...},

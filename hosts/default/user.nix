@@ -12,7 +12,7 @@ in
       isNormalUser = true;
       description = userDescription;
       shell = pkgs.zsh; 
-      extraGroups = [ "wheel" ];
+      extraGroups = [ "wheel"  "docker" ];
     };
     programs.zsh.enable = true;
   };
