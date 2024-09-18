@@ -172,7 +172,7 @@ environment.systemPackages = with pkgs; [
   # Programming languages and tools
   go lua python3 clang zig rustup
   nodePackages_latest.pnpm nodePackages_latest.yarn nodePackages_latest.nodejs
-  bun jdk fnm
+  bun jdk fnm maven
 
   # Version control and development tools
   git gh lazygit lazydocker bruno gnumake coreutils nixfmt-rfc-style meson ninja
