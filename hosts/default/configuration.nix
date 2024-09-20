@@ -1,10 +1,9 @@
 { config, lib, pkgs, inputs, options, ... }:
 
 let
-  username = "vasu";
-  userDescription = "Vasu Jain";
+  username = "roncrush";
   homeDirectory = "/home/${username}";
-  hostName = "rudra";
+  hostName = "Laptop";
   timeZone = "Asia/Kolkata";
 in
 {

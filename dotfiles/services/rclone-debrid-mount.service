@@ -4,8 +4,8 @@ After=network-online.target
 
 [Service]
 Type=simple
-User=vasu
-ExecStart=/usr/bin/rclone mount rd: /home/vasu/rd --dir-cache-time 10s --multi-thread-streams=0 --cutoff-mode=cautious --vfs-cache-mode minimal --network-mode --buffer-size=0 --read-only
+User=roncrush
+ExecStart=/usr/bin/rclone mount rd: /home/roncrush/rd --dir-cache-time 10s --multi-thread-streams=0 --cutoff-mode=cautious --vfs-cache-mode minimal --network-mode --buffer-size=0 --read-only
 Restart=always
 RestartSec=10
 
