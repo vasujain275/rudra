@@ -12,6 +12,7 @@
       url = "path:./modules/nixCats";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
   outputs = { self, nixpkgs, nixCats, ... }@inputs: {

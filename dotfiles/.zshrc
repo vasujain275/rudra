@@ -88,8 +88,8 @@ alias td='yt-dlp --external-downloader aria2c -o "%(title)s."'
 alias download='aria2c --split=16 --max-connection-per-server=16 --timeout=600 --max-download-limit=10M --file-allocation=none'
 
 # VPN Aliases
-alias vpn-up='sudo tailscale up --exit-node=raspberrypi --accept-routes'
-alias vpn-down='sudo tailscale down'
+alias vu='sudo tailscale up --exit-node=raspberrypi --accept-routes'
+alias vd='sudo tailscale down'
 warp ()
 {
     sudo systemctl "$1" warp-svc

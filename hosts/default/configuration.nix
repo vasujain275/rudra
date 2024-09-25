@@ -169,6 +169,9 @@ environment.systemPackages = with pkgs; [
   # Text editors and IDEs
   vim neovim vscode zed-editor jetbrains.idea-community-bin neovide
 
+  # Zen Browser from custom input
+  inputs.zen-browser.packages."${system}".default
+
   # Programming languages and tools
   go lua python3 clang zig rustup
   nodePackages_latest.pnpm nodePackages_latest.yarn nodePackages_latest.nodejs
