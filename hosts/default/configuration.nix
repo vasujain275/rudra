@@ -194,7 +194,7 @@ environment.systemPackages = with pkgs; [
   aria2 qbittorrent cloudflare-warp tailscale onedrive
 
   # Audio and video
-  pulseaudio pavucontrol ffmpeg mpv
+  pulseaudio pavucontrol ffmpeg mpv deadbeef-with-plugins
 
   # Image and graphics
   imagemagick gimp hyprpicker swww hyprlock waypaper imv
@@ -298,10 +298,10 @@ environment.systemPackages = with pkgs; [
       enable = true;
       useRoutingFeatures = "client";
     };
-    ollama = {
-      enable=true;
-      acceleration = "cuda";
-    };
+    # ollama = {
+    #   enable=true;
+    #   acceleration = "cuda";
+    # };
     libinput.enable = true;
     fstrim.enable = true;
     gvfs.enable = true;
