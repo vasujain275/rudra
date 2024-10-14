@@ -25,7 +25,7 @@
 ## 🍖 Requirements
 - You must be running on NixOS.
 - The rudra folder (this repo) is expected to be in your home directory.
-- Must have installed using GPT & UEFI. Systemd-boot is what is supported, for GRUB you will have to brave the internet for a how-to. ☺️
+- Must have installed using GPT & UEFI. Grub is what is supported, for SystemD you will have to brave the internet for a how-to. ☺️
 - Manually editing your host specific files. The host is the specific computer your installing on.
 
 ### ⬇️ Install
@@ -63,6 +63,9 @@ nixos-generate-config --show-hardware-config > hosts/<your-desired-hostname>/har
 
 - *Remove ciscoPacketTracker from system pkgs in configuration.nix*
 
+- *Change to amd modules from nvidia one in configuration.nix*
+
+- *Remove asusd services from configuration.nix if not using a asus laptop*
 
 Run this to enable flakes and install the flake replacing hostname with whatever you put as the hostname:
 
