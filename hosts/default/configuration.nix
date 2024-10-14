@@ -56,6 +56,10 @@ in
     hostName = hostName;
     networkmanager.enable = true;
     timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
+    firewall = {
+      allowedTCPPortRanges = [ { from = 8060; to = 8090; } ];
+      allowedUDPPortRanges = [ { from = 8060; to = 8090; } ];
+    };
   };
 
   time.timeZone = timeZone;
