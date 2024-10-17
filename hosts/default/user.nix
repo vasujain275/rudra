@@ -12,7 +12,7 @@ in
       isNormalUser = true;
       description = userDescription;
       shell = pkgs.zsh; 
-      extraGroups = [ "wheel"  "docker" ];
+      extraGroups = [ "wheel"  "docker" "wireshark" ];
     };
     programs.zsh.enable = true;
   };

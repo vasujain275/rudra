@@ -242,7 +242,7 @@ environment.systemPackages = with pkgs; [
   networkmanagerapplet
 
   # Education
-  ciscoPacketTracer8
+  ciscoPacketTracer8 wireshark
 
   # Music and streaming
   youtube-music spotify
