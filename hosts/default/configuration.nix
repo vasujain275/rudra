@@ -242,7 +242,7 @@ environment.systemPackages = with pkgs; [
   networkmanagerapplet
 
   # Education
-  ciscoPacketTracer8 wireshark
+  ciscoPacketTracer8 wireshark ventoy
 
   # Music and streaming
   youtube-music spotify
@@ -302,10 +302,10 @@ environment.systemPackages = with pkgs; [
       enable = true;
       useRoutingFeatures = "client";
     };
-    # ollama = {
-    #   enable=true;
-    #   acceleration = "cuda";
-    # };
+    ollama = {
+      enable=true;
+      acceleration = "cuda";
+    };
     libinput.enable = true;
     fstrim.enable = true;
     gvfs.enable = true;
