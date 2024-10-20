@@ -179,7 +179,7 @@ environment.systemPackages = with pkgs; [
   # Programming languages and tools
   go lua python3 python3Packages.pip clang zig rustup
   nodePackages_latest.pnpm nodePackages_latest.yarn nodePackages_latest.nodejs
-  bun jdk fnm maven wkhtmltopdf
+  bun jdk fnm maven wkhtmltopdf uv redis gcc
 
   # Version control and development tools
   git gh lazygit lazydocker bruno gnumake coreutils nixfmt-rfc-style meson ninja
@@ -305,6 +305,9 @@ environment.systemPackages = with pkgs; [
     ollama = {
       enable=true;
       acceleration = "cuda";
+    };
+    cron = {
+      enable=true;
     };
     libinput.enable = true;
     fstrim.enable = true;
