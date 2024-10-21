@@ -306,9 +306,6 @@ environment.systemPackages = with pkgs; [
       enable=true;
       acceleration = "cuda";
     };
-    cron = {
-      enable=true;
-    };
     libinput.enable = true;
     fstrim.enable = true;
     gvfs.enable = true;
