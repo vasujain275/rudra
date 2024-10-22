@@ -179,7 +179,10 @@ environment.systemPackages = with pkgs; [
   # Programming languages and tools
   go lua python3 python3Packages.pip clang zig rustup
   nodePackages_latest.pnpm nodePackages_latest.yarn nodePackages_latest.nodejs
-  bun jdk fnm maven wkhtmltopdf uv redis gcc
+  bun jdk fnm maven gcc 
+
+  # Frappe Bench
+  cronie redis mariadb wkhtmltopdf nginx uv
 
   # Version control and development tools
   git gh lazygit lazydocker bruno gnumake coreutils nixfmt-rfc-style meson ninja
@@ -308,6 +311,7 @@ environment.systemPackages = with pkgs; [
     };
     cron = {
       enable=true;
+      systemCronJobs = [];
     };
     libinput.enable = true;
     fstrim.enable = true;
