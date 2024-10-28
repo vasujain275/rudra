@@ -177,12 +177,12 @@ environment.systemPackages = with pkgs; [
   inputs.zen-browser.packages."${system}".default
 
   # Programming languages and tools
-  go lua python3 python3Packages.pip clang zig rustup
+  go lua python3 python3Packages.pip uv clang zig rustup
   nodePackages_latest.pnpm nodePackages_latest.yarn nodePackages_latest.nodejs
   bun jdk fnm maven gcc 
 
   # Frappe Bench
-  cronie redis mariadb wkhtmltopdf nginx uv
+  # redis mariadb wkhtmltopdf nginx uv
 
   # Version control and development tools
   git gh lazygit lazydocker bruno gnumake coreutils nixfmt-rfc-style meson ninja
@@ -210,7 +210,7 @@ environment.systemPackages = with pkgs; [
   obsidian onlyoffice-bin libreoffice-qt6-fresh spacedrive hugo
 
   # Communication and social
-  telegram-desktop zoom-us vesktop
+  telegram-desktop zoom-us vesktop element-desktop
 
   # Browsers
   firefox google-chrome
@@ -311,7 +311,6 @@ environment.systemPackages = with pkgs; [
     };
     cron = {
       enable=true;
-      systemCronJobs = [];
     };
     libinput.enable = true;
     fstrim.enable = true;
