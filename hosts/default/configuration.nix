@@ -182,7 +182,7 @@ environment.systemPackages = with pkgs; [
   bun jdk fnm maven gcc 
 
   # Frappe Bench
-  # redis mariadb wkhtmltopdf nginx uv
+  redis wkhtmltopdf nginx uv mariadb
 
   # Version control and development tools
   git gh lazygit lazydocker bruno gnumake coreutils nixfmt-rfc-style meson ninja
