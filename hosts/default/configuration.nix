@@ -179,7 +179,7 @@ environment.systemPackages = with pkgs; [
   # Programming languages and tools
   go lua python3 python3Packages.pip uv clang zig rustup
   nodePackages_latest.pnpm nodePackages_latest.yarn nodePackages_latest.nodejs
-  bun jdk fnm maven gcc 
+  bun jdk maven gcc 
 
   # Frappe Bench
   redis wkhtmltopdf nginx uv mariadb
