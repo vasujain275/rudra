@@ -171,9 +171,11 @@ in
 
 environment.systemPackages = with pkgs; [
   # Text editors and IDEs
-  vim neovim vscode zed-editor jetbrains.idea-community-bin neovide
-
-  # Zen Browser from custom input
+  vim neovim vscode zed-editor  neovide jetbrains.idea-ultimate
+  
+    # jetbrains.idea-community-bin
+  
+    # Zen Browser from custom input
   inputs.zen-browser.packages."${system}".default
 
   # Programming languages and tools
@@ -294,6 +296,11 @@ environment.systemPackages = with pkgs; [
           command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
         };
       };
+    };
+    logind = {
+      extraConfig = ''
+      HandlePowerKey=suspend
+    '';
     };
     cloudflare-warp.enable = true;
     supergfxd.enable = true;
