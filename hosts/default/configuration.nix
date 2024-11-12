@@ -190,7 +190,7 @@ environment.systemPackages = with pkgs; [
   git gh lazygit lazydocker bruno gnumake coreutils nixfmt-rfc-style meson ninja
 
   # Shell and terminal utilities
-  stow wget killall eza starship kitty zoxide fzf tmux progress tree
+  stow wget killall eza starship kitty zoxide fzf tmux progress tree alacritty
   inputs.nixCats.packages.${pkgs.system}.nixCats
 
   # File management and archives
