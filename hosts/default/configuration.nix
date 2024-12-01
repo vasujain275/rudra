@@ -197,7 +197,7 @@ environment.systemPackages = with pkgs; [
   yazi p7zip unzip unrar file-roller ncdu duf
 
   # System monitoring and management
-  htop btop lm_sensors inxi auto-cpufreq nvtopPackages.nvidia
+  htop btop lm_sensors inxi auto-cpufreq nvtopPackages.nvidia anydesk
 
   # Network and internet tools
   aria2 qbittorrent cloudflare-warp tailscale onedrive
