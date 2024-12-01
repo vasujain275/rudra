@@ -14,19 +14,20 @@
     # };
     zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
-
-  outputs = { self, nixpkgs, nixCats, ... }@inputs: {
+  
+  # Add nixCats after nixpkgs whenever it is needed
+  outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
         ./hosts/default/configuration.nix
         inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.default
-        ({ pkgs, ... }: {
-          environment.systemPackages = [
-            nixCats.packages.${pkgs.system}.nixCats
-          ];
-        })
+        # ({ pkgs, ... }: {
+        #   environment.systemPackages = [
+        #     nixCats.packages.${pkgs.system}.nixCats
+        #   ];
+        # })
       ];
     };
   };
