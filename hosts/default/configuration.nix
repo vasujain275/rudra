@@ -107,7 +107,7 @@ in
     cursor.size = 24;
     fonts = {
       monospace = {
-        package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
+        package = pkgs.nerd-fonts.jetbrains-mono;
         name = "JetBrainsMono Nerd Font Mono";
       };
       sansSerif = {
@@ -247,7 +247,8 @@ environment.systemPackages = with pkgs; [
   networkmanagerapplet
 
   # Education
-  ciscoPacketTracer8 wireshark ventoy
+  # ciscoPacketTracer8 
+  wireshark ventoy
 
   # Music and streaming
   youtube-music spotify
@@ -260,7 +261,7 @@ environment.systemPackages = with pkgs; [
     noto-fonts-emoji
     fira-sans
     roboto
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     font-awesome
     material-icons
   ];
@@ -312,10 +313,10 @@ environment.systemPackages = with pkgs; [
       enable = true;
       useRoutingFeatures = "client";
     };
-    ollama = {
-      enable=true;
-      acceleration = "cuda";
-    };
+    # ollama = {
+    #   enable=true;
+    #   acceleration = "cuda";
+    # };
     cron = {
       enable=true;
     };
