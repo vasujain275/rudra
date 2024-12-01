@@ -1,6 +1,6 @@
 # default apps
-export EDITOR="nixCats"
-export VISUAL="nixCats"
+# export EDITOR="nixCats"
+# export VISUAL="nixCats"
 export TERMINAL="kitty"
 export BROWSER="firefox"
 
