@@ -8,26 +8,26 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nixCats = {
-    #   url = "path:./modules/nixCats";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    nixCats = {
+      url = "path:./modules/nixCats";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
   
   # Add nixCats after nixpkgs whenever it is needed
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, nixCats, ... }@inputs: {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
         ./hosts/default/configuration.nix
         inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.default
-        # ({ pkgs, ... }: {
-        #   environment.systemPackages = [
-        #     nixCats.packages.${pkgs.system}.nixCats
-        #   ];
-        # })
+        ({ pkgs, ... }: {
+          environment.systemPackages = [
+            nixCats.packages.${pkgs.system}.nixCats
+          ];
+        })
       ];
     };
   };
