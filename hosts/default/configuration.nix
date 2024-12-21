@@ -171,7 +171,7 @@ in
 
 environment.systemPackages = with pkgs; [
   # Text editors and IDEs
-  vim neovim vscode zed-editor  neovide jetbrains.idea-ultimate
+  nano vscode zed-editor jetbrains.idea-ultimate
   
     # jetbrains.idea-community-bin
   
@@ -190,10 +190,9 @@ environment.systemPackages = with pkgs; [
   git gh lazygit lazydocker bruno gnumake coreutils nixfmt-rfc-style meson ninja
 
   # Shell and terminal utilities
-  stow wget killall eza starship kitty zoxide fzf tmux progress tree alacritty vim exfatprogs
+  stow wget killall eza starship kitty zoxide fzf tmux progress tree alacritty exfatprogs
 
   # inputs.nixCats.packages.${pkgs.system}.nixCats
-
   # File management and archives
   yazi p7zip unzip unrar file-roller ncdu duf
 
@@ -434,6 +433,7 @@ environment.systemPackages = with pkgs; [
   };
 
   programs.hyprland.enable = true;
+  
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };

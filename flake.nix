@@ -23,11 +23,7 @@
         ./hosts/default/configuration.nix
         inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.default
-        ({ pkgs, ... }: {
-          environment.systemPackages = [
-            nixCats.packages.${pkgs.system}.nixCats
-          ];
-        })
+        nixCats.nixosModules.default
       ];
     };
   };

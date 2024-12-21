@@ -21,7 +21,7 @@
   description = "A Lua-natic's neovim flake, with extra cats! nixCats!";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixCats.inputs.nixpkgs.follows = "nixpkgs";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
     # neovim-nightly-overlay = {
