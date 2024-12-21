@@ -1,6 +1,9 @@
 local M = {}
 
--- these 3 files are intended to be independent. You will likely want at least something in this one,
+-- This directory is the luaUtils template.
+-- the other 3 files are intended to be independent, but may depend on this one.
+-- You will likely want at least something in this one,
+-- and if you use lze or lz.n you should check out lzUtils.lua
 -- but unless you use lazy.nvm or want to use pckr or rocks when not on nix, you wont need the other 2
 
 ---@type boolean
@@ -9,19 +12,64 @@ M.isNixCats = vim.g[ [[nixCats-special-rtp-entry-nixCats]] ] ~= nil
 ---@class nixCatsSetupOpts
 ---@field non_nix_value boolean|nil
 
----defaults to true if non_nix_value is not provided or is not a boolean.
+---This function will setup a mock nixCats plugin when not using nix
+---It will help prevent you from running into indexing errors without a nixCats plugin from nix.
+---If you loaded the config via nix, it does nothing
+---non_nix_value defaults to true if not provided or is not a boolean.
 ---@param v nixCatsSetupOpts
 function M.setup(v)
-    if not M.isNixCats then
-        local nixCats_default_value
-        if type(v) == "table" and type(v.non_nix_value) == "boolean" then
-            nixCats_default_value = v.non_nix_value
-        else
-            nixCats_default_value = true
-        end
-        -- if not in nix, just make it return a boolean
-        require('_G').nixCats = function(_) return nixCats_default_value end
+  if not M.isNixCats then
+    local nixCats_default_value
+    if type(v) == "table" and type(v.non_nix_value) == "boolean" then
+      nixCats_default_value = v.non_nix_value
+    else
+      nixCats_default_value = true
     end
+    local mk_with_meta = function (tbl)
+      return setmetatable(tbl, {
+        __call = function(_, attrpath)
+          local strtable = {}
+          if type(attrpath) == "table" then
+              strtable = attrpath
+          elseif type(attrpath) == "string" then
+              for key in attrpath:gmatch("([^%.]+)") do
+                  table.insert(strtable, key)
+              end
+          else
+              print("function requires a table of strings or a dot separated string")
+              return
+          end
+          return vim.tbl_get(tbl, unpack(strtable));
+        end
+      })
+    end
+    package.preload['nixCats'] = function ()
+      local ncsub = {
+        get = function(_) return nixCats_default_value end,
+        cats = mk_with_meta({
+          nixCats_config_location = vim.fn.stdpath('config'),
+          wrapRc = false,
+        }),
+        settings = mk_with_meta({
+          nixCats_config_location = vim.fn.stdpath('config'),
+          configDirName = os.getenv("NVIM_APPNAME") or "nvim",
+          wrapRc = false,
+        }),
+        petShop = mk_with_meta({}),
+        extra = mk_with_meta({}),
+        pawsible = mk_with_meta({
+          allPlugins = {
+            start = {},
+            opt = {},
+          },
+        }),
+        configDir = vim.fn.stdpath('config'),
+        packageBinPath = os.getenv('NVIM_WRAPPER_PATH_NIX') or vim.v.progpath
+      }
+      return setmetatable(ncsub, {__call = function(_, cat) return ncsub.get(cat) end})
+    end
+    _G.nixCats = require('nixCats')
+  end
 end
 
 ---allows you to guarantee a boolean is returned, and also declare a different

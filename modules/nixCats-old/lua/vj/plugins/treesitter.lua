@@ -1,11 +1,33 @@
 return {
-    { -- Highlight, edit, and navigate code
+  { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
-    build = require('nixCatsUtils').lazyAdd(':TSUpdate'),
+    build = require('nixCatsUtils').lazyAdd ':TSUpdate',
     opts = {
       -- NOTE: nixCats: use lazyAdd to only set these 2 options if nix wasnt involved.
       -- because nix already ensured they were installed.
-      ensure_installed = require('nixCatsUtils').lazyAdd({ 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' }),
+      ensure_installed = require('nixCatsUtils').lazyAdd {
+        'json',
+        'javascript',
+        'typescript',
+        'tsx',
+        'yaml',
+        'html',
+        'css',
+        'prisma',
+        'markdown',
+        'markdown_inline',
+        'svelte',
+        'graphql',
+        'bash',
+        'lua',
+        'vim',
+        'dockerfile',
+        'gitignore',
+        'query',
+        'vimdoc',
+        'c',
+        'toml',
+      },
       auto_install = require('nixCatsUtils').lazyAdd(true, false),
 
       highlight = {
@@ -32,5 +54,5 @@ return {
       --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     end,
-  }
+  },
 }
