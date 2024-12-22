@@ -139,6 +139,11 @@
           cmp-nvim-lsp
           cmp-path
           tokyonight-nvim
+          rose-pine
+          transparent-nvim
+          vim-tmux-navigator
+          vim-be-good
+          lazygit-nvim
           todo-comments-nvim
           mini-nvim
           oil-nvim
