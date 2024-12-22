@@ -141,6 +141,7 @@
           tokyonight-nvim
           todo-comments-nvim
           mini-nvim
+          oil-nvim
           nvim-treesitter.withAllGrammars
           # This is for if you only want some of the grammars
           # (nvim-treesitter.withPlugins (
