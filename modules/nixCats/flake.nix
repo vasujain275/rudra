@@ -21,7 +21,7 @@
   description = "A Lua-natic's neovim flake, with extra cats! nixCats!";
 
   inputs = {
-    nixCats.inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
     # neovim-nightly-overlay = {
@@ -140,7 +140,6 @@
           tokyonight-nvim
           todo-comments-nvim
           mini-nvim
-          oil-nvim
           nvim-treesitter.withAllGrammars
           # This is for if you only want some of the grammars
           # (nvim-treesitter.withPlugins (
@@ -165,15 +164,15 @@
         kickstart-autopairs = [
           nvim-autopairs
         ];
-        # kickstart-neo-tree = [
-        #   neo-tree-nvim
-        #   nui-nvim
-        #   # nixCats will filter out duplicate packages
-        #   # so you can put dependencies with stuff even if they're
-        #   # also somewhere else
-        #   nvim-web-devicons
-        #   plenary-nvim
-        # ];
+        kickstart-neo-tree = [
+          neo-tree-nvim
+          nui-nvim
+          # nixCats will filter out duplicate packages
+          # so you can put dependencies with stuff even if they're
+          # also somewhere else
+          nvim-web-devicons
+          plenary-nvim
+        ];
       };
 
       # not loaded automatically at startup.
