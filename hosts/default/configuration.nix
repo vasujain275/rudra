@@ -173,9 +173,7 @@ environment.systemPackages = with pkgs; [
   # Text editors and IDEs
   nano vscode zed-editor jetbrains.idea-ultimate
   
-    # jetbrains.idea-community-bin
-  
-    # Zen Browser from custom input
+  # Zen Browser from custom input
   inputs.zen-browser.packages."${system}".default
 
   # Programming languages and tools
@@ -192,7 +190,8 @@ environment.systemPackages = with pkgs; [
   # Shell and terminal utilities
   stow wget killall eza starship kitty zoxide fzf tmux progress tree alacritty exfatprogs
 
-  # inputs.nixCats.packages.${pkgs.system}.nixCats
+  inputs.nixCats.packages.${pkgs.system}.nvim
+  
   # File management and archives
   yazi p7zip unzip unrar file-roller ncdu duf
 
