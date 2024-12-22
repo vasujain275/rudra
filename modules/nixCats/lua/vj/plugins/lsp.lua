@@ -29,13 +29,15 @@ return {
 
       -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
       -- used for completion, annotations and signatures of Neovim apis
-      { 'folke/lazydev.nvim', ft = "lua",
+      {
+        'folke/lazydev.nvim',
+        ft = 'lua',
         opts = {
           library = {
             -- adds type hints for nixCats global
-            { path = (require('nixCats').nixCatsPath or "") .. '/lua', words = { "nixCats" } },
+            { path = (require('nixCats').nixCatsPath or '') .. '/lua', words = { 'nixCats' } },
           },
-        }
+        },
       },
       -- kickstart.nvim was still on neodev. lazydev is the new version of neodev
     },
@@ -180,19 +182,21 @@ return {
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       -- NOTE: nixCats: there is help in nixCats for lsps at `:h nixCats.LSPs` and also `:h nixCats.luaUtils`
-      local servers = {}
-        -- servers.clangd = {},
-        -- servers.gopls = {},
-        -- servers.pyright = {},
-        -- servers.rust_analyzer = {},
-        -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-        --
-        -- Some languages (like typescript) have entire language plugins that can be useful:
-        --    https://github.com/pmizio/typescript-tools.nvim
-        --
-        -- But for many setups, the LSP (`tsserver`) will work just fine
-        -- servers.tsserver = {},
-        --
+      local servers = {
+        ts_ls = {},
+      }
+      -- servers.clangd = {},
+      -- servers.gopls = {},
+      -- servers.pyright = {},
+      -- servers.rust_analyzer = {},
+      -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
+      --
+      -- Some languages (like typescript) have entire language plugins that can be useful:
+      --    https://github.com/pmizio/typescript-tools.nvim
+      --
+      -- But for many setups, the LSP (`tsserver`) will work just fine
+      -- servers.tsserver = {},
+      --
 
       -- NOTE: nixCats: nixd is not available on mason.
       if require('nixCatsUtils').isNixCats then
@@ -212,7 +216,7 @@ return {
             },
             -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
             diagnostics = {
-              globals = { "nixCats" },
+              globals = { 'nixCats' },
               disable = { 'missing-fields' },
             },
           },
@@ -223,14 +227,14 @@ return {
       -- You could MAKE it work, using lspsAndRuntimeDeps and sharedLibraries in nixCats
       -- but don't... its not worth it. Just add the lsp to lspsAndRuntimeDeps.
       if require('nixCatsUtils').isNixCats then
-        for server_name,_ in pairs(servers) do
-          require('lspconfig')[server_name].setup({
+        for server_name, _ in pairs(servers) do
+          require('lspconfig')[server_name].setup {
             capabilities = capabilities,
             settings = servers[server_name],
             filetypes = (servers[server_name] or {}).filetypes,
             cmd = (servers[server_name] or {}).cmd,
             root_pattern = (servers[server_name] or {}).root_pattern,
-          })
+          }
         end
       else
         -- NOTE: nixCats: and if no nix, do it the normal way
@@ -267,3 +271,4 @@ return {
     end,
   },
 }
+

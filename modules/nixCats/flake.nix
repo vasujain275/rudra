@@ -58,7 +58,7 @@
       # will not apply to module imports
       # as that will have your system values
       extra_pkg_config = {
-        # allowUnfree = true;
+        allowUnfree = true;
       };
       # management of the system variable is one of the harder parts of using flakes.
 
@@ -165,6 +165,7 @@
               todo-comments-nvim
               mini-nvim
               oil-nvim
+              copilot-vim
               snacks-nvim
               mini-icons
               nvim-treesitter.withAllGrammars
