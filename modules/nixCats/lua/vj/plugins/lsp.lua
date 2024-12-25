@@ -60,7 +60,7 @@ return {
             },
           },
         },
-        tsserver = {},
+        ts_ls = {},
         nixd = {},
         yamlls = {},
         clangd = {},
