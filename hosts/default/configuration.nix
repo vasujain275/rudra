@@ -1,27 +1,30 @@
-{ config, lib, pkgs, inputs, options, ... }:
-
-let
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  options,
+  ...
+}: let
   username = "vasu";
   userDescription = "Vasu Jain";
   homeDirectory = "/home/${username}";
   hostName = "rudra";
   timeZone = "Asia/Kolkata";
-in
-{
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./user.nix
-      ../../modules/nvidia-drivers.nix
-      ../../modules/nvidia-prime-drivers.nix
-      ../../modules/intel-drivers.nix
-      inputs.home-manager.nixosModules.default
-    ];
+in {
+  imports = [
+    ./hardware-configuration.nix
+    ./user.nix
+    ../../modules/nvidia-drivers.nix
+    ../../modules/nvidia-prime-drivers.nix
+    ../../modules/intel-drivers.nix
+    inputs.home-manager.nixosModules.default
+  ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
-    kernelModules = [ "v4l2loopback" ];
-    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+    kernelModules = ["v4l2loopback"];
+    extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
     kernel.sysctl = {
       "vm.max_map_count" = 2147483642;
     };
@@ -55,10 +58,20 @@ in
   networking = {
     hostName = hostName;
     networkmanager.enable = true;
-    timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
+    timeServers = options.networking.timeServers.default ++ ["pool.ntp.org"];
     firewall = {
-      allowedTCPPortRanges = [ { from = 8060; to = 8090; } ];
-      allowedUDPPortRanges = [ { from = 8060; to = 8090; } ];
+      allowedTCPPortRanges = [
+        {
+          from = 8060;
+          to = 8090;
+        }
+      ];
+      allowedUDPPortRanges = [
+        {
+          from = 8060;
+          to = 8090;
+        }
+      ];
     };
   };
 
@@ -161,7 +174,7 @@ in
     users.${username} = {
       isNormalUser = true;
       description = userDescription;
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = ["networkmanager" "wheel"];
       packages = with pkgs; [
         firefox
         thunderbird
@@ -169,92 +182,201 @@ in
     };
   };
 
-environment.systemPackages = with pkgs; [
-  # Text editors and IDEs
-  nano vscode zed-editor jetbrains.idea-ultimate
-  
-  # Zen Browser from custom input
-  inputs.zen-browser.packages."${system}".default
+  environment.systemPackages = with pkgs; [
+    # Text editors and IDEs
+    nano
+    vscode
+    zed-editor
+    jetbrains.idea-ultimate
 
-  # Programming languages and tools
-  go lua python3 python3Packages.pip uv clang zig rustup
-  nodePackages_latest.pnpm nodePackages_latest.yarn nodePackages_latest.nodejs
-  bun jdk maven gcc 
+    # Zen Browser from custom input
+    inputs.zen-browser.packages."${system}".default
 
-  # Frappe Bench
-  redis wkhtmltopdf nginx uv mariadb
+    # Programming languages and tools
+    go
+    lua
+    python3
+    python3Packages.pip
+    uv
+    clang
+    zig
+    rustup
+    nodePackages_latest.pnpm
+    nodePackages_latest.yarn
+    nodePackages_latest.nodejs
+    bun
+    jdk
+    maven
+    gcc
+    nodePackages_latest.live-server
 
-  # Version control and development tools
-  git gh lazygit lazydocker bruno gnumake coreutils nixfmt-rfc-style meson ninja
+    # Frappe Bench
+    redis
+    wkhtmltopdf
+    nginx
+    uv
+    mariadb
 
-  # Shell and terminal utilities
-  stow wget killall eza starship kitty zoxide fzf tmux progress tree alacritty exfatprogs
+    # Version control and development tools
+    git
+    gh
+    lazygit
+    lazydocker
+    bruno
+    gnumake
+    coreutils
+    nixfmt-rfc-style
+    meson
+    ninja
 
-  inputs.nixCats.packages.${pkgs.system}.nvim
-  
-  # File management and archives
-  yazi p7zip unzip unrar file-roller ncdu duf
+    # Shell and terminal utilities
+    stow
+    wget
+    killall
+    eza
+    starship
+    kitty
+    zoxide
+    fzf
+    tmux
+    progress
+    tree
+    alacritty
+    exfatprogs
 
-  # System monitoring and management
-  htop btop lm_sensors inxi auto-cpufreq nvtopPackages.nvidia anydesk
+    inputs.nixCats.packages.${pkgs.system}.nvim
 
-  # Network and internet tools
-  aria2 qbittorrent cloudflare-warp tailscale onedrive
+    # File management and archives
+    yazi
+    p7zip
+    unzip
+    unrar
+    file-roller
+    ncdu
+    duf
 
-  # Audio and video
-  pulseaudio pavucontrol ffmpeg mpv deadbeef-with-plugins
+    # System monitoring and management
+    htop
+    btop
+    lm_sensors
+    inxi
+    auto-cpufreq
+    nvtopPackages.nvidia
+    anydesk
 
-  # Image and graphics
-  imagemagick gimp hyprpicker swww hyprlock waypaper imv
+    # Network and internet tools
+    aria2
+    qbittorrent
+    cloudflare-warp
+    tailscale
+    onedrive
 
-  # Productivity and office
-  obsidian onlyoffice-bin libreoffice-qt6-fresh spacedrive hugo
+    # Audio and video
+    pulseaudio
+    pavucontrol
+    ffmpeg
+    mpv
+    deadbeef-with-plugins
 
-  # Communication and social
-  telegram-desktop zoom-us vesktop element-desktop
+    # Image and graphics
+    imagemagick
+    gimp
+    hyprpicker
+    swww
+    hyprlock
+    waypaper
+    imv
 
-  # Browsers
-  firefox google-chrome
+    # Productivity and office
+    obsidian
+    onlyoffice-bin
+    libreoffice-qt6-fresh
+    spacedrive
+    hugo
 
-  # Gaming and entertainment
-  stremio
+    # Communication and social
+    telegram-desktop
+    zoom-us
+    vesktop
+    element-desktop
 
-  # System utilities
-  libgcc bc kdePackages.dolphin lxqt.lxqt-policykit libnotify v4l-utils ydotool
-  pciutils socat cowsay ripgrep lshw bat pkg-config brightnessctl virt-viewer
-  swappy appimage-run yad playerctl nh ansible
+    # Browsers
+    firefox
+    google-chrome
 
-  # Wayland specific
-  hyprshot hypridle grim slurp waybar dunst wl-clipboard swaynotificationcenter
+    # Gaming and entertainment
+    stremio
 
-  # Virtualization
-  libvirt
+    # System utilities
+    libgcc
+    bc
+    kdePackages.dolphin
+    lxqt.lxqt-policykit
+    libnotify
+    v4l-utils
+    ydotool
+    pciutils
+    socat
+    cowsay
+    ripgrep
+    lshw
+    bat
+    pkg-config
+    brightnessctl
+    virt-viewer
+    swappy
+    appimage-run
+    yad
+    playerctl
+    nh
+    ansible
 
-  # File systems
-  ntfs3g os-prober
+    # Wayland specific
+    hyprshot
+    hypridle
+    grim
+    slurp
+    waybar
+    dunst
+    wl-clipboard
+    swaynotificationcenter
 
-  # Downloaders
-  yt-dlp localsend
+    # Virtualization
+    libvirt
 
-  # Clipboard managers
-  cliphist
+    # File systems
+    ntfs3g
+    os-prober
 
-  # Fun and customization
-  cmatrix lolcat fastfetch onefetch microfetch
+    # Downloaders
+    yt-dlp
+    localsend
 
-  # Networking
-  networkmanagerapplet
+    # Clipboard managers
+    cliphist
 
-  # Education
-  # ciscoPacketTracer8 
-  wireshark ventoy
+    # Fun and customization
+    cmatrix
+    lolcat
+    fastfetch
+    onefetch
+    microfetch
 
-  # Music and streaming
-  youtube-music spotify
+    # Networking
+    networkmanagerapplet
 
-  # Miscellaneous
-  greetd.tuigreet
-];
+    # Education
+    # ciscoPacketTracer8
+    wireshark
+    ventoy
+
+    # Music and streaming
+    youtube-music
+    spotify
+
+    # Miscellaneous
+    greetd.tuigreet
+  ];
 
   fonts.packages = with pkgs; [
     noto-fonts-emoji
@@ -299,8 +421,8 @@ environment.systemPackages = with pkgs; [
     };
     logind = {
       extraConfig = ''
-      HandlePowerKey=suspend
-    '';
+        HandlePowerKey=suspend
+      '';
     };
     cloudflare-warp.enable = true;
     supergfxd.enable = true;
@@ -317,7 +439,7 @@ environment.systemPackages = with pkgs; [
     #   acceleration = "cuda";
     # };
     cron = {
-      enable=true;
+      enable = true;
     };
     libinput.enable = true;
     fstrim.enable = true;
@@ -326,7 +448,7 @@ environment.systemPackages = with pkgs; [
     flatpak.enable = true;
     printing = {
       enable = true;
-      drivers = [ pkgs.hplipWithPlugin ];
+      drivers = [pkgs.hplipWithPlugin];
     };
     auto-cpufreq.enable = true;
     gnome.gnome-keyring.enable = true;
@@ -357,8 +479,8 @@ environment.systemPackages = with pkgs; [
   systemd.services = {
     onedrive = {
       description = "Onedrive Sync Service";
-      after = [ "network-online.target" ];
-      wantedBy = [ "multi-user.target" ];
+      after = ["network-online.target"];
+      wantedBy = ["multi-user.target"];
       serviceConfig = {
         Type = "simple";
         User = username;
@@ -368,7 +490,7 @@ environment.systemPackages = with pkgs; [
       };
     };
     flatpak-repo = {
-      path = [ pkgs.flatpak ];
+      path = [pkgs.flatpak];
       script = "flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo";
     };
   };
@@ -376,8 +498,8 @@ environment.systemPackages = with pkgs; [
   hardware = {
     sane = {
       enable = true;
-      extraBackends = [ pkgs.sane-airscan ];
-      disabledDefaultBackends = [ "escl" ];
+      extraBackends = [pkgs.sane-airscan];
+      disabledDefaultBackends = ["escl"];
     };
     logitech.wireless = {
       enable = true;
@@ -420,9 +542,9 @@ environment.systemPackages = with pkgs; [
   nix = {
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
-      substituters = [ "https://hyprland.cachix.org" ];
-      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+      experimental-features = ["nix-command" "flakes"];
+      substituters = ["https://hyprland.cachix.org"];
+      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
     gc = {
       automatic = true;
@@ -432,10 +554,9 @@ environment.systemPackages = with pkgs; [
   };
 
   programs.hyprland.enable = true;
-  
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     users.${username} = import ./home.nix;
     useGlobalPkgs = true;
     useUserPackages = true;
