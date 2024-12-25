@@ -137,6 +137,16 @@
               pylint
               black
               nodePackages.prettier
+              djlint
+              yamlfmt
+              rustfmt
+              shfmt
+              shellharden
+              beautysh
+              alejandra
+              nixfmt
+              taplo
+              pgformatter
               nodePackages.eslint
               emmet-ls
               nodePackages."@prisma/language-server"
