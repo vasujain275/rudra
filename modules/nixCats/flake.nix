@@ -125,6 +125,21 @@
               typescript-language-server
               nixd
               stylua
+              gopls
+              yaml-language-server
+              clang-tools
+              rust-analyzer
+              nodePackages.vscode-langservers-extracted # for html, cssls, etc.
+              nodePackages.svelte-language-server
+              nodePackages.graphql-language-service-cli
+              nodePackages."@tailwindcss/language-server"
+              pyright
+              pylint
+              black
+              nodePackages.prettier
+              nodePackages.eslint
+              emmet-ls
+              nodePackages."@prisma/language-server"
             ];
             kickstart-debug = [
               delve
