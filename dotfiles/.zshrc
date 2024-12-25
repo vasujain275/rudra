@@ -83,6 +83,10 @@ alias gs='git status'
 alias gpush='git push origin'
 alias lg='lazygit'
 
+# Nixos Aliases
+alias rebuild= 'sudo nixos-rebuild switch --flake ~/rudra/.#default'
+alias recats= 'sudo nix flake lock --update-input nixCats && sudo nixos-rebuild switch --flake ~/rudra/.#default'
+
 # Downloads Aliases
 alias yd='yt-dlp -f "bestvideo+bestaudio" --embed-chapters --external-downloader aria2c --concurrent-fragments 8 --throttled-rate 100K'
 alias td='yt-dlp --external-downloader aria2c -o "%(title)s."'
