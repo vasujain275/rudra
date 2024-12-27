@@ -241,8 +241,8 @@
         ]
       },
       "locked": {
-        "lastModified": 1735125868,
-        "narHash": "sha256-GfbR31JKq4KiF/0vC0/ESXPVcyD1wBaFVmjQ76/jZSM=",
+        "lastModified": 1735289743,
+        "narHash": "sha256-a/jKYTRNadNERbmrWsreA954Yuh3Ey1Pga/lUbks6G4=",
         "path": "/home/vasu/rudra/modules/nixCats",
         "type": "path"
       },
