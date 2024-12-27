@@ -556,65 +556,54 @@ in {
 
   programs.hyprland.enable = true;
 
-  xdg.mimeApps = {
-    enable = true;
+  xdg.mime.defaultApplications = {
+    # Web and HTML
+    "x-scheme-handler/http" = "firefox.desktop";
+    "x-scheme-handler/https" = "firefox.desktop";
+    "x-scheme-handler/chrome" = "firefox.desktop";
+    "text/html" = "firefox.desktop";
+    "application/x-extension-htm" = "firefox.desktop";
+    "application/x-extension-html" = "firefox.desktop";
+    "application/x-extension-shtml" = "firefox.desktop";
+    "application/x-extension-xhtml" = "firefox.desktop";
+    "application/xhtml+xml" = "firefox.desktop";
 
-    defaultApplications = {
-      # Web browser related
-      "x-scheme-handler/http" = ["firefox.desktop"];
-      "x-scheme-handler/https" = ["firefox.desktop"];
-      "x-scheme-handler/chrome" = ["firefox.desktop"];
-      "text/html" = ["firefox.desktop"];
-      "application/x-extension-htm" = ["firefox.desktop"];
-      "application/x-extension-html" = ["firefox.desktop"];
-      "application/x-extension-shtml" = ["firefox.desktop"];
-      "application/x-extension-xht" = ["firefox.desktop"];
-      "application/x-extension-xhtml" = ["firefox.desktop"];
-      "application/xhtml+xml" = ["firefox.desktop"];
+    # File management
+    "inode/directory" = "org.kde.dolphin.desktop";
 
-      # File manager
-      "inode/directory" = ["org.kde.dolphin.desktop"];
+    # Text editor
+    "text/plain" = "nvim.desktop";
 
-      # Terminal
-      "x-scheme-handler/terminal" = ["ghostty.desktop"];
+    # Terminal
+    "x-scheme-handler/terminal" = "ghostty.desktop";
 
-      # Video files
-      "video/quicktime" = ["mpv-2.desktop"];
-      "video/x-matroska" = ["mpv-2.desktop"];
+    # Videos
+    "video/quicktime" = "mpv-2.desktop";
+    "video/x-matroska" = "mpv-2.desktop";
 
-      # PDF files
-      "application/pdf" = ["firefox.desktop"];
+    # LibreOffice formats
+    "application/vnd.oasis.opendocument.text" = "libreoffice-writer.desktop";
+    "application/vnd.oasis.opendocument.spreadsheet" = "libreoffice-calc.desktop";
+    "application/vnd.oasis.opendocument.presentation" = "libreoffice-impress.desktop";
+    "application/vnd.ms-excel" = "libreoffice-calc.desktop";
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = "libreoffice-calc.desktop";
+    "application/msword" = "libreoffice-writer.desktop";
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "libreoffice-writer.desktop";
+    "application/vnd.ms-powerpoint" = "libreoffice-impress.desktop";
+    "application/vnd.openxmlformats-officedocument.presentationml.presentation" = "libreoffice-impress.desktop";
 
-      # Text editor
-      "text/plain" = ["nvim.desktop"];
+    # PDF
+    "application/pdf" = "firefox.desktop";
 
-      # Microsoft Office formats
-      "application/msword" = ["firefox.desktop"];
-      "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = ["firefox.desktop"];
-      "application/vnd.ms-excel" = ["firefox.desktop"];
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = ["firefox.desktop"];
-      "application/vnd.ms-powerpoint" = ["firefox.desktop"];
-      "application/vnd.openxmlformats-officedocument.presentationml.presentation" = ["firefox.desktop"];
+    # Torrents
+    "application/x-bittorrent" = "org.qbittorrent.qBittorrent.desktop";
+    "x-scheme-handler/magnet" = "org.qbittorrent.qBittorrent.desktop";
 
-      # Other handlers
-      "x-scheme-handler/about" = ["firefox.desktop"];
-      "x-scheme-handler/unknown" = ["firefox.desktop"];
-      "x-scheme-handler/postman" = ["Postman.desktop"];
-      "x-scheme-handler/tonsite" = ["org.telegram.desktop.desktop"];
-    };
-
-    associations.added = {
-      "inode/directory" = ["org.kde.dolphin.desktop"];
-      "text/html" = ["firefox.desktop"];
-      "video/quicktime" = ["mpv-2.desktop"];
-      "video/x-matroska" = ["mpv-2.desktop"];
-      "application/pdf" = ["firefox.desktop"];
-      "text/plain" = ["nvim.desktop"];
-      "x-scheme-handler/http" = ["firefox.desktop"];
-      "x-scheme-handler/https" = ["firefox.desktop"];
-      "x-scheme-handler/terminal" = ["ghostty.desktop"];
-      "x-scheme-handler/tonsite" = ["org.telegram.desktop.desktop"];
-    };
+    # Other handlers
+    "x-scheme-handler/about" = "firefox.desktop";
+    "x-scheme-handler/unknown" = "firefox.desktop";
+    "x-scheme-handler/postman" = "Postman.desktop";
+    "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop";
   };
 
   home-manager = {
