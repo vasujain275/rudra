@@ -1,1 +1,16 @@
 font-family = JetBrainsMono Nerd Font
+font-size = 18
+
+theme = rose-pine
+background-opacity = 0.70
+
+window-decoration = false
+window-vsync = true
+window-padding-x = 4
+window-padding-y = 4
+window-padding-balance = true
+window-padding-color = extend-always
+window-theme = dark
+
+copy-on-select = true
+shell-integration = zsh
