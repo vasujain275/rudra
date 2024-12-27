@@ -9,16 +9,25 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixCats = {
-      url = "path:./modules/nixCats";
+      url = "path:/home/vasu/rudra/modules/nixCats";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser.url = "github:MarceColl/zen-browser-flake";
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
   };
-  
+
   # Add nixCats after nixpkgs whenever it is needed
-  outputs = { self, nixpkgs, nixCats, ... }@inputs: {
+  outputs = {
+    self,
+    nixpkgs,
+    nixCats,
+    ghostty,
+    ...
+  } @ inputs: {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
+      specialArgs = {inherit inputs;};
       modules = [
         ./hosts/default/configuration.nix
         inputs.stylix.nixosModules.stylix

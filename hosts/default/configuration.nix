@@ -245,6 +245,7 @@ in {
     exfatprogs
 
     inputs.nixCats.packages.${pkgs.system}.nvim
+    inputs.ghostty.packages.${pkgs.system}.default
 
     # File management and archives
     yazi
