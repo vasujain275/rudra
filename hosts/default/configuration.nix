@@ -208,6 +208,7 @@ in {
     jdk
     maven
     gcc
+    openssl
     nodePackages_latest.live-server
 
     # Frappe Bench
