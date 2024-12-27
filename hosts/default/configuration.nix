@@ -556,6 +556,67 @@ in {
 
   programs.hyprland.enable = true;
 
+  xdg.mimeApps = {
+    enable = true;
+
+    defaultApplications = {
+      # Web browser related
+      "x-scheme-handler/http" = ["firefox.desktop"];
+      "x-scheme-handler/https" = ["firefox.desktop"];
+      "x-scheme-handler/chrome" = ["firefox.desktop"];
+      "text/html" = ["firefox.desktop"];
+      "application/x-extension-htm" = ["firefox.desktop"];
+      "application/x-extension-html" = ["firefox.desktop"];
+      "application/x-extension-shtml" = ["firefox.desktop"];
+      "application/x-extension-xht" = ["firefox.desktop"];
+      "application/x-extension-xhtml" = ["firefox.desktop"];
+      "application/xhtml+xml" = ["firefox.desktop"];
+
+      # File manager
+      "inode/directory" = ["org.kde.dolphin.desktop"];
+
+      # Terminal
+      "x-scheme-handler/terminal" = ["ghostty.desktop"];
+
+      # Video files
+      "video/quicktime" = ["mpv-2.desktop"];
+      "video/x-matroska" = ["mpv-2.desktop"];
+
+      # PDF files
+      "application/pdf" = ["firefox.desktop"];
+
+      # Text editor
+      "text/plain" = ["nvim.desktop"];
+
+      # Microsoft Office formats
+      "application/msword" = ["firefox.desktop"];
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = ["firefox.desktop"];
+      "application/vnd.ms-excel" = ["firefox.desktop"];
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = ["firefox.desktop"];
+      "application/vnd.ms-powerpoint" = ["firefox.desktop"];
+      "application/vnd.openxmlformats-officedocument.presentationml.presentation" = ["firefox.desktop"];
+
+      # Other handlers
+      "x-scheme-handler/about" = ["firefox.desktop"];
+      "x-scheme-handler/unknown" = ["firefox.desktop"];
+      "x-scheme-handler/postman" = ["Postman.desktop"];
+      "x-scheme-handler/tonsite" = ["org.telegram.desktop.desktop"];
+    };
+
+    associations.added = {
+      "inode/directory" = ["org.kde.dolphin.desktop"];
+      "text/html" = ["firefox.desktop"];
+      "video/quicktime" = ["mpv-2.desktop"];
+      "video/x-matroska" = ["mpv-2.desktop"];
+      "application/pdf" = ["firefox.desktop"];
+      "text/plain" = ["nvim.desktop"];
+      "x-scheme-handler/http" = ["firefox.desktop"];
+      "x-scheme-handler/https" = ["firefox.desktop"];
+      "x-scheme-handler/terminal" = ["ghostty.desktop"];
+      "x-scheme-handler/tonsite" = ["org.telegram.desktop.desktop"];
+    };
+  };
+
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users.${username} = import ./home.nix;

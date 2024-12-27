@@ -43,7 +43,7 @@ in {
       # Individual config files
       ".config/kwalletrc".source = ../../dotfiles/.config/kwalletrc;
       ".config/starship.toml".source = ../../dotfiles/.config/starship.toml;
-      ".config/mimeapps.list".source = ../../dotfiles/.config/mimeapps.list;
+      # ".config/mimeapps.list".source = ../../dotfiles/.config/mimeapps.list;
     };
 
     # sessionVariables = {
