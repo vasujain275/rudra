@@ -1,5 +1,16 @@
-[aws]
-symbol = "  "
+# add_newline = false
+# # A minimal left prompt
+# format = """$directory$character"""
+# # move the rest of the prompt to the right
+# right_format = """$all"""
+# command_timeout = 1000
+#
+# [character]
+# vicmd_symbol = "[N] >>>"
+# success_symbol = '[➜](bold green)'
+#
+# [directory.substitutions]
+# '~/tests/starship-custom' = 'work-project'
 
 [buf]
 symbol = " "
@@ -34,11 +45,11 @@ symbol = " "
 [fossil_branch]
 symbol = " "
 
-[git_branch]
-symbol = " "
-
-[golang]
-symbol = " "
+# [git_branch]
+# symbol = " "
+#
+# [golang]
+# symbol = " "
 
 [guix_shell]
 symbol = " "
@@ -162,3 +173,22 @@ symbol = " "
 
 [zig]
 symbol = " "
+
+
+[git_branch]
+format = '[$symbol$branch(:$remote_branch)]($style)'
+
+[aws]
+format = '[$symbol(profile: "$profile" )(\(region: $region\) )]($style)'
+disabled = false
+style = 'bold blue'
+symbol = " "
+
+[golang]
+format = '[ ](bold cyan)'
+
+[kubernetes]
+symbol = '☸ '
+disabled = true
+detect_files = ['Dockerfile']
+format = '[$symbol$context( \($namespace\))]($style) '
