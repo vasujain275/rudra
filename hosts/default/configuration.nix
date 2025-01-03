@@ -224,6 +224,7 @@ in {
     lazygit
     lazydocker
     bruno
+    postman
     bruno-cli
     gnumake
     coreutils
