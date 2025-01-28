@@ -13,9 +13,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-    };
+    # ghostty = {
+    #   url = "github:ghostty-org/ghostty";
+    # };
   };
 
   # Add nixCats after nixpkgs whenever it is needed
@@ -23,7 +23,7 @@
     self,
     nixpkgs,
     nixCats,
-    ghostty,
+    # ghostty,
     ...
   } @ inputs: {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {

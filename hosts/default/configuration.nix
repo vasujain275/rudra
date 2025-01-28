@@ -42,7 +42,7 @@ in {
     };
     tmp = {
       useTmpfs = true;
-      tmpfsSize = "30%";
+      tmpfsSize = "10G";
     };
     binfmt.registrations.appimage = {
       wrapInterpreterInShell = false;
@@ -203,7 +203,7 @@ in {
     rustup
     nodePackages_latest.pnpm
     nodePackages_latest.yarn
-    nodePackages_latest.nodejs
+    fnm
     bun
     jdk
     maven
@@ -248,7 +248,7 @@ in {
     exfatprogs
 
     inputs.nixCats.packages.${pkgs.system}.nvim
-    inputs.ghostty.packages.${pkgs.system}.default
+    # inputs.ghostty.packages.${pkgs.system}.default
 
     # File management and archives
     yazi
@@ -478,6 +478,7 @@ in {
       jack.enable = true;
       wireplumber.enable = true;
     };
+    pulseaudio.enable = false;
   };
 
   systemd.services = {
@@ -513,7 +514,6 @@ in {
       enable = true;
       powerOnBoot = true;
     };
-    pulseaudio.enable = false;
     graphics.enable = true;
   };
 
@@ -578,7 +578,7 @@ in {
     "text/plain" = "nvim.desktop";
 
     # Terminal
-    "x-scheme-handler/terminal" = "ghostty.desktop";
+    "x-scheme-handler/terminal" = "kitty.desktop";
 
     # Videos
     "video/quicktime" = "mpv-2.desktop";
