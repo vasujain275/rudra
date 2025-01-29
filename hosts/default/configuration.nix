@@ -454,7 +454,21 @@ in {
       enable = true;
       drivers = [pkgs.hplipWithPlugin];
     };
-    auto-cpufreq.enable = true;
+    power-profiles-daemon.enable = false;
+    thermald.enable = true;
+    auto-cpufreq = {
+      enable = true;
+      settings = {
+        battery = {
+          governor = "powersave";
+          turbo = "never";
+        };
+        charger = {
+          governor = "performance";
+          turbo = "auto";
+        };
+      };
+    };
     gnome.gnome-keyring.enable = true;
     avahi = {
       enable = true;
@@ -480,6 +494,8 @@ in {
     };
     pulseaudio.enable = false;
   };
+
+  powerManagement.powertop.enable = true;
 
   systemd.services = {
     onedrive = {
