@@ -28,6 +28,13 @@ in {
     kernel.sysctl = {
       "vm.max_map_count" = 2147483642;
     };
+    kernelParams = [
+      "intel_pstate=active"
+      "i915.enable_psr=1" # Panel self refresh
+      "i915.enable_fbc=1" # Framebuffer compression
+      "i915.enable_dc=2" # Display power saving
+      "nvme.noacpi=1" # Helps with NVME power consumption
+    ];
     loader = {
       efi = {
         canTouchEfiVariables = true;
@@ -63,9 +70,6 @@ in {
 
   # Enable Intel drivers
   drivers.intel.enable = true;
-
-  # Additional necessary configurations
-  hardware.opengl.enable = true; # Base OpenGL support
 
   # Blacklist NVIDIA modules
   boot.blacklistedKernelModules = ["nvidia" "nouveau"];
@@ -288,7 +292,6 @@ in {
     btop
     lm_sensors
     inxi
-    auto-cpufreq
     nvtopPackages.nvidia
     anydesk
 
@@ -454,11 +457,11 @@ in {
       '';
     };
     cloudflare-warp.enable = true;
-    supergfxd.enable = true;
-    asusd = {
-      enable = true;
-      enableUserService = true;
-    };
+    # supergfxd.enable = true;
+    # asusd = {
+    #   enable = true;
+    #   enableUserService = true;
+    # };
     tailscale = {
       enable = true;
       useRoutingFeatures = "client";
