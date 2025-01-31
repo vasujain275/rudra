@@ -75,13 +75,13 @@ in {
   boot.blacklistedKernelModules = ["nvidia" "nouveau"];
 
   # Environment variables for Hyprland + Intel
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "iHD";
-    VDPAU_DRIVER = "va_gl";
-    __GLX_VENDOR_LIBRARY_NAME = "mesa";
-    WLR_NO_HARDWARE_CURSORS = "1"; # In case of cursor issues
-    NIXOS_OZONE_WL = "1"; # For better Electron apps support
-  };
+  # environment.sessionVariables = {
+  #   LIBVA_DRIVER_NAME = "iHD";
+  #   VDPAU_DRIVER = "va_gl";
+  #   __GLX_VENDOR_LIBRARY_NAME = "mesa";
+  #   WLR_NO_HARDWARE_CURSORS = "1"; # In case of cursor issues
+  #   NIXOS_OZONE_WL = "1"; # For better Electron apps support
+  # };
 
   networking = {
     hostName = hostName;
