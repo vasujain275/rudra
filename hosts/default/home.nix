@@ -21,7 +21,6 @@ in {
 
       # Top Level Files symlinks
       ".zshrc".source = ../../dotfiles/.zshrc;
-      ".zshenv".source = ../../dotfiles/.zshenv;
       ".xinitrc".source = ../../dotfiles/.xinitrc;
       ".gitconfig".source = ../../dotfiles/.gitconfig;
       ".ideavimrc".source = ../../dotfiles/.ideavimrc;
