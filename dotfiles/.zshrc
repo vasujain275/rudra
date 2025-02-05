@@ -143,6 +143,9 @@ esac
 # Cargo Bin
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# Local Bin
+export PATH="$HOME/.local/bin:$PATH"
+
 # Android Studio Paths
 # export JAVA_HOME="/opt/android-studio/jbr"
 # export ANDROID_HOME="$HOME/Android/Sdk"
