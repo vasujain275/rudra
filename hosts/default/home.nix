@@ -106,8 +106,8 @@ in {
   };
   qt = {
     enable = true;
-    style.name = "adwaita-dark";
-    platformTheme.name = "gtk3";
+    style.name = "kvantum";
+    platformTheme.name = "qtct";
   };
 
   services.hypridle = {
