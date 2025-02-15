@@ -136,7 +136,7 @@
           shellharden
           beautysh
           alejandra
-          nixfmt
+          nixfmt-rfc-style
           taplo
           pgformatter
           nodePackages.eslint

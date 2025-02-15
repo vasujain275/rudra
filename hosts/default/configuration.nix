@@ -80,6 +80,9 @@ in {
         }
       ];
     };
+    firewall = {
+      checkReversePath = "loose";
+    };
   };
 
   time.timeZone = timeZone;
@@ -151,6 +154,15 @@ in {
     docker = {
       enable = true;
     };
+    libvirtd = {
+      enable = true;
+      qemu = {
+        swtpm.enable = true;
+        ovmf.enable = true;
+        runAsRoot = true;
+      };
+    };
+    spiceUSBRedirection.enable = true;
   };
 
   programs = {
@@ -354,6 +366,12 @@ in {
 
     # Virtualization
     libvirt
+    qemu
+    virt-manager
+    spice
+    spice-gtk
+    spice-protocol
+    OVMF
 
     # File systems
     ntfs3g
@@ -508,7 +526,7 @@ in {
   systemd.services = {
     onedrive = {
       description = "Onedrive Sync Service";
-      after = ["network-online.target"];
+      # after = ["network-online.target"];
       wantedBy = ["multi-user.target"];
       serviceConfig = {
         Type = "simple";
@@ -521,6 +539,11 @@ in {
     flatpak-repo = {
       path = [pkgs.flatpak];
       script = "flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo";
+    };
+    libvirtd = {
+      enable = true;
+      wantedBy = ["multi-user.target"];
+      requires = ["virtlogd.service"];
     };
   };
 
