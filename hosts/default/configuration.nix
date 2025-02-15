@@ -526,7 +526,7 @@ in {
   systemd.services = {
     onedrive = {
       description = "Onedrive Sync Service";
-      # after = ["network-online.target"];
+      after = ["network-online.target"];
       wantedBy = ["multi-user.target"];
       serviceConfig = {
         Type = "simple";
