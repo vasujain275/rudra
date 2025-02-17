@@ -224,7 +224,7 @@ in {
     nodePackages_latest.yarn
     fnm
     bun
-    jdk
+    # jdk
     maven
     gcc
     openssl
@@ -273,6 +273,7 @@ in {
     yazi
     p7zip
     unzip
+    zip
     unrar
     file-roller
     ncdu
@@ -472,6 +473,7 @@ in {
       enable = true;
     };
     libinput.enable = true;
+    upower.enable = true;
     fstrim.enable = true;
     gvfs.enable = true;
     openssh.enable = true;
