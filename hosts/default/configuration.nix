@@ -213,6 +213,10 @@ in {
 
     # Programming languages and tools
     go
+    go-blueprint
+    sqlc
+    goose
+    air
     lua
     python3
     python3Packages.pip
@@ -224,8 +228,8 @@ in {
     nodePackages_latest.yarn
     fnm
     bun
-    # jdk
     maven
+    mongodb-compass
     gcc
     openssl
     nodePackages_latest.live-server
@@ -326,6 +330,7 @@ in {
     # Browsers
     firefox
     google-chrome
+    tor-browser
 
     # Gaming and entertainment
     stremio
@@ -523,7 +528,7 @@ in {
     pulseaudio.enable = false;
   };
 
-  powerManagement.powertop.enable = true;
+  # powerManagement.powertop.enable = true;
 
   systemd.services = {
     onedrive = {
