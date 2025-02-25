@@ -28,52 +28,58 @@
     # };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixCats,
-    hyprpanel,
-    # ghostty,
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-  in {
-    # Define your NixOS system configuration
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      # Pass the system architecture
-      inherit system;
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixCats,
+      hyprpanel,
+      # ghostty,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+    in
+    {
+      # Define your NixOS system configuration
+      nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+        # Pass the system architecture
+        inherit system;
 
-      # specialArgs makes these values available in your configuration modules
-      specialArgs = {
-        inherit inputs;
+        # specialArgs makes these values available in your configuration modules
+        specialArgs = {
+          inherit inputs;
+        };
+
+        # The modules that make up your system configuration
+        modules = [
+          # Add this module to configure nixpkgs and overlays globally
+          (
+            {
+              config,
+              pkgs,
+              ...
+            }:
+            {
+              # Enable unfree packages globally
+              nixpkgs.config.allowUnfree = true;
+
+              # Configure the hyprpanel overlay
+              nixpkgs.overlays = [
+                hyprpanel.overlay
+              ];
+            }
+          )
+
+          # Your main configuration file
+          ./hosts/default/configuration.nix
+
+          # Stylix module for system-wide theming
+          inputs.stylix.nixosModules.stylix
+
+          # Home-manager module for user environment management
+          inputs.home-manager.nixosModules.default
+        ];
       };
-
-      # The modules that make up your system configuration
-      modules = [
-        # Add this module to configure nixpkgs and overlays globally
-        ({
-          config,
-          pkgs,
-          ...
-        }: {
-          # Enable unfree packages globally
-          nixpkgs.config.allowUnfree = true;
-
-          # Configure the hyprpanel overlay
-          nixpkgs.overlays = [
-            hyprpanel.overlay
-          ];
-        })
-
-        # Your main configuration file
-        ./hosts/default/configuration.nix
-
-        # Stylix module for system-wide theming
-        inputs.stylix.nixosModules.stylix
-
-        # Home-manager module for user environment management
-        inputs.home-manager.nixosModules.default
-      ];
     };
-  };
 }

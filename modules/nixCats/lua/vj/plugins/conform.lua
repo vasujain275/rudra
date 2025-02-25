@@ -26,19 +26,19 @@ return {
         -- Lua
         lua = { 'stylua' },
         -- Python
-        python = { 'isort', 'black' }, -- isort first, then black
+        python = { 'isort', 'black' },
         -- Web development
-        javascript = { { 'prettier' } },
-        typescript = { { 'prettier' } },
-        javascriptreact = { { 'prettier' } },
-        typescriptreact = { { 'prettier' } },
-        svelte = { { 'prettier' } },
-        css = { { 'prettier' } },
-        html = { { 'prettier', 'djlint' } }, -- prettier first, then djlint
-        json = { { 'prettier' } },
-        yaml = { { 'prettier', 'yamlfmt' } },
-        graphql = { { 'prettier' } },
-        markdown = { { 'prettier' } },
+        javascript = { 'prettier' },
+        typescript = { 'prettier' },
+        javascriptreact = { 'prettier' },
+        typescriptreact = { 'prettier' },
+        svelte = { 'prettier' },
+        css = { 'prettier' },
+        html = { 'prettier', 'djlint' },
+        json = { 'prettier' },
+        yaml = { 'prettier', 'yamlfmt' },
+        graphql = { 'prettier' },
+        markdown = { 'prettier' },
         -- System languages
         rust = { 'rustfmt' },
         go = { 'gopls' },
@@ -47,7 +47,7 @@ return {
         bash = { 'shfmt', 'shellharden', 'beautysh' },
         zsh = { 'shfmt', 'shellharden', 'beautysh' },
         -- Configuration files
-        nix = { { 'alejandra', 'nixfmt' } }, -- try alejandra first, fallback to nixfmt
+        nix = { 'alejandra', 'nixfmt' },
         toml = { 'taplo' },
         -- Databases
         sql = { 'pgformatter' },
@@ -73,24 +73,21 @@ return {
             tab_width = 2,
             trailing_comma = 'es5',
             use_tabs = false,
+            stop_after_first = true,
           },
         },
         shfmt = {
           options = {
-            indent = 2, -- number of spaces to indent
-            binary_next_line = true, -- binary ops like && and | may start a line
-            switch_case_indent = true, -- switch cases will be indented
-            space_redirects = true, -- redirect operators will be followed by a space
-            keep_padding = true, -- keep column alignment paddings
-            func_next_line = false, -- function opening braces are placed on next line
-            language_variant = 'bash', -- bash/posix/mksh/bats
+            indent = 2,
+            binary_next_line = true,
+            switch_case_indent = true,
+            space_redirects = true,
+            keep_padding = true,
+            func_next_line = false,
+            language_variant = 'bash',
           },
         },
-        alejandra = {
-          options = {
-            -- Alejandra doesn't take formatting options
-          },
-        },
+        alejandra = {},
         black = {
           options = {
             line_length = 88,
@@ -99,7 +96,7 @@ return {
         },
         isort = {
           options = {
-            line_length = 88, -- Match black's line length
+            line_length = 88,
             multi_line_output = 3,
             include_trailing_comma = true,
             force_grid_wrap = 0,
@@ -126,10 +123,10 @@ return {
         },
         pgformatter = {
           options = {
-            function_case = 2, -- uppercase function names
-            keyword_case = 2, -- uppercase keywords
-            spaces = 2, -- indentation spaces
-            comma_break = true, -- comma first style
+            function_case = 2,
+            keyword_case = 2,
+            spaces = 2,
+            comma_break = true,
             comma_end = false,
           },
         },
@@ -137,4 +134,3 @@ return {
     },
   },
 }
-
