@@ -30,13 +30,21 @@ return {
           },
         },
       },
+      -- **Added dependency for blink.cmp**
+      { 'saghen/blink.cmp' },
     },
     config = function()
       -- Keep all the existing autocommand and mapping setup code...
       -- [Previous autocommands and mappings remain unchanged]
 
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+      -- Replace cmp_nvim_lsp integration with blink.cmp integration:
+      --
+      -- Old code (with nvim-cmp):
+      -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+      -- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+      --
+      -- New code using blink.cmp:
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
 
       -- Updated servers configuration
       local servers = {

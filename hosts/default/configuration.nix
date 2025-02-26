@@ -5,13 +5,15 @@
   inputs,
   options,
   ...
-}: let
+}:
+let
   username = "vasu";
   userDescription = "Vasu Jain";
   homeDirectory = "/home/${username}";
   hostName = "rudra";
   timeZone = "Asia/Kolkata";
-in {
+in
+{
   imports = [
     ./hardware-configuration.nix
     ./user.nix
@@ -23,8 +25,8 @@ in {
 
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
-    kernelModules = ["v4l2loopback"];
-    extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
+    kernelModules = [ "v4l2loopback" ];
+    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
     kernel.sysctl = {
       "vm.max_map_count" = 2147483642;
     };
@@ -65,7 +67,7 @@ in {
   networking = {
     hostName = hostName;
     networkmanager.enable = true;
-    timeServers = options.networking.timeServers.default ++ ["pool.ntp.org"];
+    timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
     firewall = {
       allowedTCPPortRanges = [
         {
@@ -193,7 +195,10 @@ in {
     users.${username} = {
       isNormalUser = true;
       description = userDescription;
-      extraGroups = ["networkmanager" "wheel"];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
       packages = with pkgs; [
         firefox
         thunderbird
@@ -214,6 +219,7 @@ in {
     # Programming languages and tools
     go
     go-blueprint
+    go-migrate
     sqlc
     goose
     air
@@ -443,7 +449,7 @@ in {
         layout = "us";
         variant = "";
       };
-      videoDrivers = ["modesetting"];
+      videoDrivers = [ "modesetting" ];
     };
     greetd = {
       enable = true;
@@ -485,7 +491,7 @@ in {
     flatpak.enable = true;
     printing = {
       enable = true;
-      drivers = [pkgs.hplipWithPlugin];
+      drivers = [ pkgs.hplipWithPlugin ];
     };
     power-profiles-daemon.enable = false;
     thermald.enable = true;
@@ -533,8 +539,8 @@ in {
   systemd.services = {
     onedrive = {
       description = "Onedrive Sync Service";
-      after = ["network-online.target"];
-      wantedBy = ["multi-user.target"];
+      after = [ "network-online.target" ];
+      wantedBy = [ "multi-user.target" ];
       serviceConfig = {
         Type = "simple";
         User = username;
@@ -544,21 +550,21 @@ in {
       };
     };
     flatpak-repo = {
-      path = [pkgs.flatpak];
+      path = [ pkgs.flatpak ];
       script = "flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo";
     };
     libvirtd = {
       enable = true;
-      wantedBy = ["multi-user.target"];
-      requires = ["virtlogd.service"];
+      wantedBy = [ "multi-user.target" ];
+      requires = [ "virtlogd.service" ];
     };
   };
 
   hardware = {
     sane = {
       enable = true;
-      extraBackends = [pkgs.sane-airscan];
-      disabledDefaultBackends = ["escl"];
+      extraBackends = [ pkgs.sane-airscan ];
+      disabledDefaultBackends = [ "escl" ];
     };
     logitech.wireless = {
       enable = true;
@@ -600,9 +606,12 @@ in {
   nix = {
     settings = {
       auto-optimise-store = true;
-      experimental-features = ["nix-command" "flakes"];
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      substituters = [ "https://hyprland.cachix.org" ];
+      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
     gc = {
       automatic = true;
@@ -645,9 +654,11 @@ in {
     "application/vnd.ms-excel" = "libreoffice-calc.desktop";
     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = "libreoffice-calc.desktop";
     "application/msword" = "libreoffice-writer.desktop";
-    "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "libreoffice-writer.desktop";
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document" =
+      "libreoffice-writer.desktop";
     "application/vnd.ms-powerpoint" = "libreoffice-impress.desktop";
-    "application/vnd.openxmlformats-officedocument.presentationml.presentation" = "libreoffice-impress.desktop";
+    "application/vnd.openxmlformats-officedocument.presentationml.presentation" =
+      "libreoffice-impress.desktop";
 
     # PDF
     "application/pdf" = "zen.desktop";
@@ -664,7 +675,7 @@ in {
   };
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = { inherit inputs; };
     users.${username} = import ./home.nix;
     useGlobalPkgs = true;
     useUserPackages = true;
