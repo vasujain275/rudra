@@ -417,7 +417,16 @@ in
 
     # Miscellaneous
     greetd.tuigreet
+    customSddmTheme
+    libsForQt5.qt5.qtgraphicaleffects
   ];
+
+  environment.etc."sddm/wayland-sessions/hyprland.desktop".text = ''
+    [Desktop Entry]
+    Name=Hyprland
+    Exec=Hyprland
+    Type=Application
+  '';
 
   fonts.packages = with pkgs; [
     noto-fonts-emoji
@@ -451,16 +460,21 @@ in
       };
       videoDrivers = [ "modesetting" ];
     };
-    greetd = {
+    displayManager.sddm = {
       enable = true;
-      vt = 3;
-      settings = {
-        default_session = {
-          user = username;
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
-        };
-      };
+      wayland.enable = true; # Enable Wayland backend
+      theme = "rose-pine"; # Your custom theme name
     };
+    # greetd = {
+    #   enable = true;
+    #   vt = 3;
+    #   settings = {
+    #     default_session = {
+    #       user = username;
+    #       command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+    #     };
+    #   };
+    # };
     logind = {
       extraConfig = ''
         HandlePowerKey=suspend

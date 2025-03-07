@@ -1,31 +1,18 @@
 {
   description = "Rudra flake";
   inputs = {
-    # nixpkgs: The main repository of Nix packages
-    # Using nixos-unstable branch for latest stable packages
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    # stylix: A theming framework for NixOS
     stylix.url = "github:danth/stylix";
-
-    # home-manager: User environment management
-    # The `follows` line means it will use the same nixpkgs as your main system
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # nixCats: Neovim for NixOS with Lazy properly configured
     nixCats = {
       url = "path:/home/vasu/rudra/modules/nixCats";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    # ghostty = {
-    #   url = "github:ghostty-org/ghostty";
-    # };
   };
 
   outputs =
@@ -34,26 +21,30 @@
       nixpkgs,
       nixCats,
       hyprpanel,
-      # ghostty,
       ...
     }@inputs:
     let
       system = "x86_64-linux";
+
+      # Define the custom SDDM theme as an overlay
+      customSddmThemeOverlay = final: prev: {
+        customSddmTheme = prev.stdenv.mkDerivation {
+          name = "rose-pine";
+          src = ./modules/sddm-theme;
+          installPhase = ''
+            mkdir -p $out/share/sddm/themes/rose-pine
+            cp -r $src/* $out/share/sddm/themes/rose-pine
+          '';
+        };
+      };
+
+      pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      # Define your NixOS system configuration
       nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-        # Pass the system architecture
         inherit system;
-
-        # specialArgs makes these values available in your configuration modules
-        specialArgs = {
-          inherit inputs;
-        };
-
-        # The modules that make up your system configuration
+        specialArgs = { inherit inputs; };
         modules = [
-          # Add this module to configure nixpkgs and overlays globally
           (
             {
               config,
@@ -61,23 +52,17 @@
               ...
             }:
             {
-              # Enable unfree packages globally
               nixpkgs.config.allowUnfree = true;
 
-              # Configure the hyprpanel overlay
+              # Add the custom theme overlay
               nixpkgs.overlays = [
+                customSddmThemeOverlay
                 hyprpanel.overlay
               ];
             }
           )
-
-          # Your main configuration file
           ./hosts/default/configuration.nix
-
-          # Stylix module for system-wide theming
           inputs.stylix.nixosModules.stylix
-
-          # Home-manager module for user environment management
           inputs.home-manager.nixosModules.default
         ];
       };
