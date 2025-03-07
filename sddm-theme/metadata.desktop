@@ -1,0 +1,13 @@
+[SddmGreeterTheme]
+Name=Dark-openSUSE-SDDM
+Description=Dark-openSUSE SDDM
+Author=l4k1
+License=GPLv.3
+Type=sddm-theme
+Version=1.2
+Screenshot=preview.png
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=translations
+Email=l4k1987@gmail.com
+Theme-Id=Dark-openSUSE-SDDM
