@@ -407,7 +407,6 @@ in
     networkmanagerapplet
 
     # Education
-    # ciscoPacketTracer8
     wireshark
     ventoy
 

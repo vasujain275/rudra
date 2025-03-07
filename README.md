@@ -62,9 +62,7 @@ nixos-generate-config --show-hardware-config > hosts/<your-desired-hostname>/har
 
 - _Edit All the instances of my name "vasu" and replace it with your name_
 
-- _Remove ciscoPacketTracker from system pkgs in configuration.nix_
-
-- _Change to amd modules from nvidia one in configuration.nix_
+- _Change to amd/intel modules from nvidia one according to your gpu in configuration.nix_
 
 Run this to enable flakes and install the flake replacing hostname with whatever you put as the hostname:
 
